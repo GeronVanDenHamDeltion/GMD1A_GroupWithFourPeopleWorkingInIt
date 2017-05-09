@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 98a0e0793bae08c47ae67e565b825ba2
-timeCreated: 1494331023
+guid: d31c4f1c1e2071c4ea414c2facc8403a
+timeCreated: 1494331600
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -17,6 +17,7 @@ ModelImporter:
     3300002: SideWalkT
     4300000: SideWalkT
     4300002: RoadT
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

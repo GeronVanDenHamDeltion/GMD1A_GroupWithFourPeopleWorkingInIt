@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b462bcd49a031a048b4ffa359df1592a
-timeCreated: 1494331023
+guid: fd09e1ac43d468a4fb238e246b89e553
+timeCreated: 1494331600
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -17,6 +17,7 @@ ModelImporter:
     3300002: StraightRoadBump
     4300000: SideWalks
     4300002: StraightRoadBump
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

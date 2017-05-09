@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2654169cb0f2b0f458e5cd8c195f7b20
-timeCreated: 1494331022
+guid: aefe8bdbbed94e544a21660d977a89fc
+timeCreated: 1494331600
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -17,6 +17,7 @@ ModelImporter:
     3300002: TRoad-nomid
     4300000: SideWalkT-NoMid
     4300002: TRoad-nomid
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
