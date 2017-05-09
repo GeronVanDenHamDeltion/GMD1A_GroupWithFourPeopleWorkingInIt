@@ -1,15 +1,23 @@
 fileFormatVersion: 2
-guid: 558fd010d5d33934598e00347ae0fba3
-timeCreated: 1494322399
+guid: 6e0d35ce593eee34ba062e2329371f06
+timeCreated: 1494329670
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Road
+    100000: SideWalk2
+    100002: TurnRoad2
+    100004: //RootNode
+    400000: SideWalk2
+    400002: TurnRoad2
+    400004: //RootNode
+    2300000: SideWalk2
+    2300002: TurnRoad2
+    3300000: SideWalk2
+    3300002: TurnRoad2
+    4300000: TurnRoad2
+    4300002: SideWalk2
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -55,7 +63,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

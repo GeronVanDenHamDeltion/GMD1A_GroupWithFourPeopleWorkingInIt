@@ -1,15 +1,22 @@
 fileFormatVersion: 2
-guid: d6c02785d83b2d9498ae0d91fc9e4114
-timeCreated: 1494322399
+guid: a84db4d9f622012409d44daf0f16763d
+timeCreated: 1494329898
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: SideWalkTurn
+    100000: SideWalks
+    100002: //RootNode
+    100004: StraightRoadBump
+    400000: SideWalks
+    400002: //RootNode
+    400004: StraightRoadBump
+    2300000: SideWalks
+    2300002: StraightRoadBump
+    3300000: SideWalks
+    3300002: StraightRoadBump
+    4300000: SideWalks
+    4300002: StraightRoadBump
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -53,9 +60,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 0
+    normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
