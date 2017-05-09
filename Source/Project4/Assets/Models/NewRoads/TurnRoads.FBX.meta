@@ -1,23 +1,22 @@
 fileFormatVersion: 2
-guid: 35fd910a534ce6d41b55dbda121c68c8
-timeCreated: 1494329670
+guid: 3c4e1f5818250f74d83258ae42210853
+timeCreated: 1494331022
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: RoadTurn
-    100002: SideWalkTurn
-    100004: //RootNode
-    400000: RoadTurn
-    400002: SideWalkTurn
-    400004: //RootNode
-    2300000: RoadTurn
-    2300002: SideWalkTurn
-    3300000: RoadTurn
-    3300002: SideWalkTurn
-    4300000: RoadTurn
-    4300002: SideWalkTurn
-    7400000: Take 001
+    100000: TurnRoad
+    100002: //RootNode
+    100004: TurnSideWalk
+    400000: TurnRoad
+    400002: //RootNode
+    400004: TurnSideWalk
+    2300000: TurnRoad
+    2300002: TurnSideWalk
+    3300000: TurnRoad
+    3300002: TurnSideWalk
+    4300000: TurnSideWalk
+    4300002: TurnRoad
     9500000: //RootNode
   materials:
     importMaterials: 1

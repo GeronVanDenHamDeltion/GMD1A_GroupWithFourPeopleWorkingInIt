@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 2654169cb0f2b0f458e5cd8c195f7b20
+guid: 703473f08293a1c41a3d0a234844d4f7
 timeCreated: 1494331022
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: SideWalkT-NoMid
-    100002: //RootNode
-    100004: TRoad-nomid
-    400000: SideWalkT-NoMid
-    400002: //RootNode
-    400004: TRoad-nomid
-    2300000: SideWalkT-NoMid
-    2300002: TRoad-nomid
-    3300000: SideWalkT-NoMid
-    3300002: TRoad-nomid
-    4300000: SideWalkT-NoMid
-    4300002: TRoad-nomid
+    100000: //RootNode
+    100002: CrossRoads
+    100004: CRSideWalk
+    400000: //RootNode
+    400002: CrossRoads
+    400004: CRSideWalk
+    2300000: CrossRoads
+    2300002: CRSideWalk
+    3300000: CrossRoads
+    3300002: CRSideWalk
+    4300000: CRSideWalk
+    4300002: CrossRoads
     9500000: //RootNode
   materials:
     importMaterials: 1
