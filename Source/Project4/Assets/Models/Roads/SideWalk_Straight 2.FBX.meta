@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b6f527be41a5e3c4f97be971f534e54f
-timeCreated: 1494415446
+guid: a453e47254ef34e47ac5822e74b839e5
+timeCreated: 1494580442
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Plane001
+    4300000: StraightSideWalk
     7400000: Take 001
     9500000: //RootNode
   materials:
