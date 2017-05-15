@@ -1,27 +1,22 @@
 fileFormatVersion: 2
-guid: 4e4db88cf4e86b34bb9226c76eb6b747
-timeCreated: 1494589824
+guid: f36f17fc7c3920a4f9526ba361cf0a3d
+timeCreated: 1494851503
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: ParkPathSquare
+    100002: ParkSquare
     100004: Path
-    100006: PathSides
     400000: //RootNode
-    400002: ParkPathSquare
+    400002: ParkSquare
     400004: Path
-    400006: PathSides
-    2300000: ParkPathSquare
+    2300000: ParkSquare
     2300002: Path
-    2300004: PathSides
-    3300000: ParkPathSquare
+    3300000: ParkSquare
     3300002: Path
-    3300004: PathSides
-    4300000: ParkPathSquare
-    4300002: PathSides
-    4300004: Path
+    4300000: ParkSquare
+    4300002: Path
     7400000: Take 001
     9500000: //RootNode
   materials:

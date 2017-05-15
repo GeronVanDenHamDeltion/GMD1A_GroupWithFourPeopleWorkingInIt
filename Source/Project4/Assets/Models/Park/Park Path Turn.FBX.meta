@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: b253a9d27c72605428b166e281bb2e2b
-timeCreated: 1494589825
+guid: 2711dd739d3a796418fe54f4c882890c
+timeCreated: 1494851503
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box001
-    100002: Object001
-    100004: //RootNode
-    100006: PathTurn
-    400000: Box001
-    400002: Object001
-    400004: //RootNode
-    400006: PathTurn
-    2300000: Box001
-    2300002: Object001
-    2300004: PathTurn
-    3300000: Box001
-    3300002: Object001
-    3300004: PathTurn
-    4300000: Box001
-    4300002: Object001
-    4300004: PathTurn
-    7400000: Take 001
+    100000: //RootNode
+    100002: ParkSquare
+    100004: Path2
+    400000: //RootNode
+    400002: ParkSquare
+    400004: Path2
+    2300000: ParkSquare
+    2300002: Path2
+    3300000: ParkSquare
+    3300002: Path2
+    4300000: ParkSquare
+    4300002: Path2
     9500000: //RootNode
   materials:
     importMaterials: 1
