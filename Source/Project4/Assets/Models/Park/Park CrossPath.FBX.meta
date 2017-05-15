@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 37e64f40333ac6247878d6b37807b5af
-timeCreated: 1494851503
+guid: b781504ecc46249479cd288890e6013a
+timeCreated: 1494871048
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -8,15 +8,21 @@ ModelImporter:
     100000: //RootNode
     100002: ParkSquare
     100004: Path2
+    100006: PathSides
     400000: //RootNode
     400002: ParkSquare
     400004: Path2
+    400006: PathSides
     2300000: ParkSquare
     2300002: Path2
+    2300004: PathSides
     3300000: ParkSquare
     3300002: Path2
+    3300004: PathSides
     4300000: ParkSquare
     4300002: Path2
+    4300004: PathSides
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

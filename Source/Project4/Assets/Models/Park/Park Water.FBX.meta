@@ -1,62 +1,32 @@
 fileFormatVersion: 2
-guid: 7ea99fdaf4f433c4fa8c181d7369fdfe
-timeCreated: 1494851503
+guid: f7ff264262fdef542b3929319ed7b847
+timeCreated: 1494874155
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: PlayGround
-    100004: Sand
-    100006: Sandbox
-    100008: SwingChain2
-    100010: SwingChain3
-    100012: SwingChain3 1
-    100014: SwingSeat
-    100016: SwingSeat2
-    100018: SwingSeat3
-    100020: SwingSet
-    400000: //RootNode
-    400002: PlayGround
-    400004: Sand
-    400006: Sandbox
-    400008: SwingChain2
-    400010: SwingChain3
-    400012: SwingChain3 1
-    400014: SwingSeat
-    400016: SwingSeat2
-    400018: SwingSeat3
-    400020: SwingSet
-    2300000: PlayGround
-    2300002: Sand
-    2300004: Sandbox
-    2300006: SwingChain2
-    2300008: SwingChain3
-    2300010: SwingChain3 1
-    2300012: SwingSeat
-    2300014: SwingSeat2
-    2300016: SwingSeat3
-    2300018: SwingSet
-    3300000: PlayGround
-    3300002: Sand
-    3300004: Sandbox
-    3300006: SwingChain2
-    3300008: SwingChain3
-    3300010: SwingChain3 1
-    3300012: SwingSeat
-    3300014: SwingSeat2
-    3300016: SwingSeat3
-    3300018: SwingSet
-    4300000: PlayGround
-    4300002: Sandbox
-    4300004: Sand
-    4300006: SwingSet
-    4300008: SwingChain3
-    4300010: SwingChain2
-    4300012: SwingChain3
-    4300014: SwingSeat3
-    4300016: SwingSeat2
-    4300018: SwingSeat
+    100000: Bridge
+    100002: //RootNode
+    100004: Railing
+    100006: Wall
+    100008: WaterPark
+    400000: Bridge
+    400002: //RootNode
+    400004: Railing
+    400006: Wall
+    400008: WaterPark
+    2300000: Bridge
+    2300002: Railing
+    2300004: Wall
+    2300006: WaterPark
+    3300000: Bridge
+    3300002: Railing
+    3300004: Wall
+    3300006: WaterPark
+    4300000: WaterPark
+    4300002: Bridge
+    4300004: Railing
+    4300006: Wall
     9500000: //RootNode
   materials:
     importMaterials: 1
