@@ -12,6 +12,7 @@ public class CarEngine : MonoBehaviour
     public float currentSpeed;
     public float maxSpeed;
     public Vector3 centerOfMass;
+    public bool willem;
 
     private List<Transform> nodes;
     private int currentNode = 0;
@@ -35,6 +36,7 @@ public class CarEngine : MonoBehaviour
         ApplySteer();
         Drive();
         CheckWayPointDistance();
+        Braking();
 	}
     private void ApplySteer()
     {
@@ -71,5 +73,9 @@ public class CarEngine : MonoBehaviour
                 currentNode++;
             }
         } 
+    }
+    private void Braking()
+    {
+
     }
 }
