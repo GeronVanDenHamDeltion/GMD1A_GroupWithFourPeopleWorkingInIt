@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     public float speed;
     public float jumpspeed;
     public bool jumppushed;
     public float timer;
+    
 
 
 
 	
 
-	void Update ()
+	void FixedUpdate ()
     {
         float vertical = Input.GetAxis("Vertical") * speed;
         float horizontal = Input.GetAxis("Horizontal") * speed;
@@ -21,6 +22,8 @@ public class CharacterController : MonoBehaviour
         horizontal *= Time.deltaTime;
 
         transform.Translate(horizontal, 0, vertical);
+        
+
 
         if (Input.GetButtonDown("Jump") && jumppushed == false)
         {
