@@ -24,6 +24,7 @@ public class CarEngine : MonoBehaviour
     public Vector3 frontSensorPos;
     public float sideSensorPos;
     public float frontSensorAngle;
+    public float sideWalkPos;
 
     private bool avoiding = false;
     private List<Transform> nodes;
@@ -121,9 +122,22 @@ public class CarEngine : MonoBehaviour
         {
             if (hit.collider.CompareTag("Terrain") == false)
             {
-                Debug.DrawLine(sensorStarPos, hit.point);
-                avoiding = true;
-                avoidMultiplier -= 1f;
+                if (hit.collider.CompareTag("SideWalk") == true)
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
+                    {
+                        avoiding = true;
+                        avoidMultiplier -= 1f;
+                    }
+                }
+                else
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    avoiding = true;
+                    avoidMultiplier -= 1f;
+                }
+                
             }
         }
         
@@ -132,9 +146,21 @@ public class CarEngine : MonoBehaviour
         {
             if (hit.collider.CompareTag("Terrain") == false)
             {
-                Debug.DrawLine(sensorStarPos, hit.point);
-                avoiding = true;
-                avoidMultiplier -= 0.5f;
+                if (hit.collider.CompareTag("SideWalk") == true)
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
+                    {
+                        avoiding = true;
+                        avoidMultiplier -= 0.5f;
+                    }
+                }
+                else
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    avoiding = true;
+                    avoidMultiplier -= 0.5f;
+                }
             }
         }
 
@@ -144,9 +170,21 @@ public class CarEngine : MonoBehaviour
         {
             if (hit.collider.CompareTag("Terrain") == false)
             {
-                Debug.DrawLine(sensorStarPos, hit.point);
-                avoiding = true;
-                avoidMultiplier += 1f;
+                if (hit.collider.CompareTag("SideWalk") == true)
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
+                    {
+                        avoiding = true;
+                        avoidMultiplier += 1f;
+                    }
+                }
+                else
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    avoiding = true;
+                    avoidMultiplier += 1f;
+                }
             }
         }
         
@@ -155,9 +193,21 @@ public class CarEngine : MonoBehaviour
         {
             if (hit.collider.CompareTag("Terrain") == false)
             {
-                Debug.DrawLine(sensorStarPos, hit.point);
-                avoiding = true;
-                avoidMultiplier += 0.5f;
+                if (hit.collider.CompareTag("SideWalk") == true)
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
+                    {
+                        avoiding = true;
+                        avoidMultiplier += 0.5f;
+                    }
+                }
+                else
+                {
+                    Debug.DrawLine(sensorStarPos, hit.point);
+                    avoiding = true;
+                    avoidMultiplier += 0.5f;
+                }
             }
         }
         //front Center Sensor
@@ -167,14 +217,35 @@ public class CarEngine : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Terrain") == false)
                 {
-                    Debug.DrawLine(sensorStarPos, hit.point);
-                    avoiding = true;
-                    if (hit.normal.x < 0)
+                    if (hit.collider.CompareTag("SideWalk") == true)
                     {
-                        avoidMultiplier = -1;
-                    }else
+                        Debug.DrawLine(sensorStarPos, hit.point);
+                        if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
+                        {
+                            avoiding = true;
+                            if (hit.normal.x < 0)
+                            {
+                                avoidMultiplier = -1;
+                            }
+                            else
+                            {
+                                avoidMultiplier = 1;
+                            }
+                        }
+
+                    }
+                    else
                     {
-                        avoidMultiplier = 1;
+                        Debug.DrawLine(sensorStarPos, hit.point);
+                        avoiding = true;
+                        if (hit.normal.x < 0)
+                        {
+                            avoidMultiplier = -1;
+                        }
+                        else
+                        {
+                            avoidMultiplier = 1;
+                        }
                     }
                 }
             }
