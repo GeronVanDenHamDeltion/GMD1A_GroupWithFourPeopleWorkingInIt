@@ -21,10 +21,11 @@ public class PlayerMovement : MonoBehaviour
         vertical *= Time.deltaTime;
         horizontal *= Time.deltaTime;
 
-        transform.Translate(horizontal, 0, vertical);
-        
+        transform.Translate(horizontal, 0, vertical);  
 
-
+    }
+    void Update()
+    {
         if (Input.GetButtonDown("Jump") && jumppushed == false)
         {
             this.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpspeed);

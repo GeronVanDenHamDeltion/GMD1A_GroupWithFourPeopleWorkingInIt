@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarEngine : MonoBehaviour
 {
     public Transform path;
+    public float turnSpeed;
     public float maxSteerAngle;
     public float maxBrakeTorque;
     public float maxMotorTorque;
@@ -12,6 +13,8 @@ public class CarEngine : MonoBehaviour
     public float maxSpeed;
     public Vector3 centerOfMass;
     public bool brake;
+    public bool stillbrake;
+    public float wayPointDistance;
 
     [Header("Wheels")]
     public WheelCollider wheelFL;
@@ -27,8 +30,9 @@ public class CarEngine : MonoBehaviour
     public float sideWalkPos;
 
     private bool avoiding = false;
-    private List<Transform> nodes;
-    private int currentNode = 0;
+    public List<Transform> nodes;
+    public int currentNode = 0;
+    private float targetSteerAngle = 0f;
 
     void Start ()
     {
@@ -46,7 +50,7 @@ public class CarEngine : MonoBehaviour
     }
 	void Update()
     {
-        if (brake == true && currentSpeed < 0.1f)
+        if (brake == true && currentSpeed < 0.01f && stillbrake == false)
         {
             brake = false;
         }
@@ -58,15 +62,14 @@ public class CarEngine : MonoBehaviour
         CheckWayPointDistance();
         Braking();
         Sensors();
+        LerpToSteerAngle();
 	}
     private void ApplySteer()
     {
         if (avoiding) return;
         Vector3 RelativeVector = transform.InverseTransformPoint(nodes[currentNode].position);
-        //RelativeVector /= RelativeVector.magnitude;
         float newSteer = (RelativeVector.x / RelativeVector.magnitude) * maxSteerAngle;
-        wheelFL.steerAngle = newSteer;
-        wheelFR.steerAngle = newSteer;
+        targetSteerAngle = newSteer;
     }
     private void Drive()
     {
@@ -85,7 +88,7 @@ public class CarEngine : MonoBehaviour
     }
     private void CheckWayPointDistance()
     {
-        if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.5f)
+        if (Vector3.Distance(transform.position, nodes[currentNode].position) < wayPointDistance)
         {
             if(currentNode == nodes.Count - 1)
             {
@@ -142,7 +145,7 @@ public class CarEngine : MonoBehaviour
         }
         
         //Front Right Angle Sensors
-        else if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
+        if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
             if (hit.collider.CompareTag("Terrain") == false)
             {
@@ -189,7 +192,7 @@ public class CarEngine : MonoBehaviour
         }
         
         //Front Left Angle Sensors
-        else if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(-frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
+        if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(-frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
             if (hit.collider.CompareTag("Terrain") == false)
             {
@@ -253,9 +256,13 @@ public class CarEngine : MonoBehaviour
 
         if (avoiding == true)
         {
-            wheelFL.steerAngle = maxSteerAngle * avoidMultiplier;
-            wheelFR.steerAngle = maxSteerAngle * avoidMultiplier;
+            targetSteerAngle = maxSteerAngle * avoidMultiplier;
         }
         //print(avoidMultiplier);
+    }
+    private void LerpToSteerAngle()
+    {
+        wheelFL.steerAngle = Mathf.Lerp(wheelFL.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
+        wheelFR.steerAngle = Mathf.Lerp(wheelFR.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
     }
 }
