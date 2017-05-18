@@ -8,6 +8,9 @@ public class CrossPoint : MonoBehaviour
     public List<Stop> Stops = new List<Stop>();
     public int roads;
     public int currentcount;
+    public int waitTime;
+    public bool empty;
+    public bool runningRoutine;
 	
     public void FillList(int i, CarEngine car)
     {
@@ -19,9 +22,11 @@ public class CrossPoint : MonoBehaviour
     }
     void Update()
     {
-        if (CheckIfEmpty() == false)
+        empty = CheckIfEmpty();
+        if (CheckIfEmpty() == false && runningRoutine == false)
         {
             setCurrentCount();
+            runningRoutine = true;
             StartCoroutine(position());
         }
     }
@@ -54,10 +59,12 @@ public class CrossPoint : MonoBehaviour
     }
     public IEnumerator position()
     {
+        print(currentcount);
         Stops[currentcount].needsToBrake = false;
         Stops[currentcount].ChangeBrake();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(waitTime);
         Stops[currentcount].needsToBrake = true;
         Stops[currentcount].ChangeBrake();
+        runningRoutine = false;
     }
 }

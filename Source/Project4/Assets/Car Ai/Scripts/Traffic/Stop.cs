@@ -16,11 +16,12 @@ public class Stop : MonoBehaviour
 	
 	void Update ()
     {
+        ChangeBrake();
 	}
     void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.name);
-        if (other.CompareTag("Car") == true && crossing == false)
+        //print(other.gameObject.name);
+        if (other.CompareTag("Car") == true && other.GetComponent<CarParant>().thisCarEngine.crossing == false)
         {
             thisEngine = other.GetComponent<CarParant>().thisCarEngine;
             thisCrossPoint.FillList(roadnumber-1, thisEngine);
@@ -39,30 +40,36 @@ public class Stop : MonoBehaviour
     }
     public void ChangeBrake()
     {
-        if (needsToBrake == true)
+        if (thisEngine != null)
         {
-            thisEngine.brake = true;
-            thisEngine.stillbrake = true;
-        }
-        if (needsToBrake == false)
-        {
-            thisEngine.brake = false;
-            thisEngine.stillbrake = false;
+            if (thisEngine.crossing == false)
+            {
+                if (needsToBrake == true)
+                {
+                    thisEngine.brake = true;
+                    thisEngine.stillbrake = true;
+                }
+                if (needsToBrake == false)
+                {
+                    thisEngine.brake = false;
+                    thisEngine.stillbrake = false;
+                }
+            }
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Car") == true)
         {
-            thisEngine = null;
-            thisCrossPoint.EmptyList(roadnumber-1);
-            if (thisEngine.crossing == true)
+            CarEngine engine = other.GetComponent<CarParant>().thisCarEngine;
+            if (engine.crossing == true)
             {
-                thisEngine.crossing = false;
-            }
-            if (thisEngine.crossing == false)
+                engine.crossing = false;
+            } else if (engine.crossing == false)
             {
-                thisEngine.crossing = true;
+                engine.crossing = true;
+                thisCrossPoint.EmptyList(roadnumber - 1);
+                thisEngine = null;
             }
         }
     }
