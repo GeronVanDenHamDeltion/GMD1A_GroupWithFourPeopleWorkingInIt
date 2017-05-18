@@ -11,9 +11,20 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+<<<<<<< HEAD
         Walk();
     }
 
+=======
+        float vertical = Input.GetAxis("Vertical") * speed;
+        float horizontal = Input.GetAxis("Horizontal") * speed;
+        vertical *= Time.deltaTime;
+        horizontal *= Time.deltaTime;
+
+        transform.Translate(horizontal, 0, vertical);  
+
+    }
+>>>>>>> origin/master
     void Update()
     {
         if (Input.GetButtonDown("Jump") && jumppushed == false)
