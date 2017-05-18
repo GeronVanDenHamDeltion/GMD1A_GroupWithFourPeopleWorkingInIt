@@ -8,27 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public float jumpspeed;
     public bool jumppushed;
     public float timer;
-    
 
-
-
-	
-
-	void FixedUpdate ()
+    void FixedUpdate()
     {
-        float vertical = Input.GetAxis("Vertical") * speed;
-        float horizontal = Input.GetAxis("Horizontal") * speed;
-        vertical *= Time.deltaTime;
-        horizontal *= Time.deltaTime;
+        Walk();
+    }
 
-        transform.Translate(horizontal, 0, vertical);
-        
-
-
+    void Update()
+    {
         if (Input.GetButtonDown("Jump") && jumppushed == false)
         {
-            this.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpspeed);
-            jumppushed = true;
+            Jump();
         }
         if (jumppushed == true)
         {
@@ -40,4 +30,21 @@ public class PlayerMovement : MonoBehaviour
             jumppushed = false;
         }
     }
+
+    public void Walk()
+    {
+        float vertical = Input.GetAxis("Vertical") * speed;
+        float horizontal = Input.GetAxis("Horizontal") * speed;
+        vertical *= Time.deltaTime;
+        horizontal *= Time.deltaTime;
+
+        transform.Translate(horizontal, 0, vertical);
+    }
+
+    public void Jump()
+    {
+        this.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpspeed);
+        jumppushed = true;
+    }
+
 }
