@@ -8,6 +8,7 @@ public class Stop : MonoBehaviour
     public CrossPoint thisCrossPoint;
     public CarEngine thisEngine;
     public int roadnumber;
+    public CarEngine crossing;
     void Start()
     {
         needsToBrake = true;
@@ -19,27 +20,34 @@ public class Stop : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         print(other.gameObject.name);
-        if (other.CompareTag("Car") == true)
+        if (other.CompareTag("Car") == true && crossing == false)
         {
             thisEngine = other.GetComponent<CarParant>().thisCarEngine;
             thisCrossPoint.FillList(roadnumber-1, thisEngine);
-        }
-        
-    }
-    void onTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Car") == true)
-        {
             if (needsToBrake == true)
             {
-                other.GetComponent<CarParant>().thisCarEngine.brake = true;
-                other.GetComponent<CarParant>().thisCarEngine.stillbrake = true;
+                thisEngine.brake = true;
+                thisEngine.stillbrake = true;
             }
             if (needsToBrake == false)
             {
-                other.GetComponent<CarParant>().thisCarEngine.brake = false;
-                other.GetComponent<CarParant>().thisCarEngine.stillbrake = false;
+                thisEngine.brake = false;
+                thisEngine.stillbrake = false;
+                
             }
+        }
+    }
+    public void ChangeBrake()
+    {
+        if (needsToBrake == true)
+        {
+            thisEngine.brake = true;
+            thisEngine.stillbrake = true;
+        }
+        if (needsToBrake == false)
+        {
+            thisEngine.brake = false;
+            thisEngine.stillbrake = false;
         }
     }
     void OnTriggerExit(Collider other)
@@ -48,6 +56,14 @@ public class Stop : MonoBehaviour
         {
             thisEngine = null;
             thisCrossPoint.EmptyList(roadnumber-1);
+            if (thisEngine.crossing == true)
+            {
+                thisEngine.crossing = false;
+            }
+            if (thisEngine.crossing == false)
+            {
+                thisEngine.crossing = true;
+            }
         }
     }
 }

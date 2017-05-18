@@ -17,7 +17,7 @@ public class CrossPoint : MonoBehaviour
     {
         Cars[i] = null;
     }
-    public void NeedToRun()
+    void Update()
     {
         if (CheckIfEmpty() == false)
         {
@@ -55,7 +55,9 @@ public class CrossPoint : MonoBehaviour
     public IEnumerator position()
     {
         Stops[currentcount].needsToBrake = false;
+        Stops[currentcount].ChangeBrake();
         yield return new WaitForSeconds(5);
         Stops[currentcount].needsToBrake = true;
+        Stops[currentcount].ChangeBrake();
     }
 }

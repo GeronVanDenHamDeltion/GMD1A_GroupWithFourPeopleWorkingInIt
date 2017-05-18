@@ -15,6 +15,7 @@ public class CarEngine : MonoBehaviour
     public bool brake;
     public bool stillbrake;
     public float wayPointDistance;
+    public bool crossing;
 
     [Header("Wheels")]
     public WheelCollider wheelFL;
