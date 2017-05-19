@@ -124,7 +124,7 @@ public class CarEngine : MonoBehaviour
         sensorStarPos += transform.right * sideSensorPos;
         if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -148,7 +148,7 @@ public class CarEngine : MonoBehaviour
         //Front Right Angle Sensors
         if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -172,7 +172,7 @@ public class CarEngine : MonoBehaviour
         sensorStarPos -= transform.right * sideSensorPos *2;
         if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -195,7 +195,7 @@ public class CarEngine : MonoBehaviour
         //Front Left Angle Sensors
         if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(-frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -219,7 +219,7 @@ public class CarEngine : MonoBehaviour
         {
             if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
             {
-                if (hit.collider.CompareTag("Terrain") == false)
+                if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
                 {
                     if (hit.collider.CompareTag("SideWalk") == true)
                     {
