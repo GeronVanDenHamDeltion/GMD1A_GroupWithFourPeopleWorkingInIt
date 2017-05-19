@@ -29,7 +29,7 @@ public class HandScript : MonoBehaviour
         RaycastHit hit;
         Transform sensorStarPos = GameObject.Find("Main Camera").transform;
 
-        Debug.DrawRay(sensorStarPos.position, sensorStarPos.forward * 100);
+        Debug.DrawRay(sensorStarPos.position, sensorStarPos.forward * sensorLength);
         if (Physics.Raycast(sensorStarPos.position, sensorStarPos.transform.forward, out hit, sensorLength))
         {
             if (hit.collider.CompareTag("Terrain") == false)
