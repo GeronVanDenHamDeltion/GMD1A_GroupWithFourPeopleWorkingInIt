@@ -8,13 +8,14 @@ public class HandScript : MonoBehaviour
     public GameObject palm;
     public GameObject player;
     public GameObject item;
+
     public Animator anim;
+
     public bool itemGrabbed;
-    public float timer;
+    public bool itemInReach;
 
-    
+    public float timer;       
     public float sensorLength;
-
 
     void Start()
     {
@@ -24,18 +25,28 @@ public class HandScript : MonoBehaviour
         anim = hand.GetComponent<Animator>();
     }
 
+
     void Update()
     {
         CheckForObject();
 
-        if(itemGrabbed)
+        if (itemInReach || itemGrabbed)
+        {
+            hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1, 1, -1), 10 * Time.deltaTime);
+        }
+        else
+        {
+            hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1,0.1f,-1), 2 * Time.deltaTime);
+        }
+
+        if (itemGrabbed)
         {
             
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);
             item.transform.rotation = palm.transform.rotation;
             timer += Time.deltaTime;
-            //item.transform.localScale += new Vector3.Lerp(timer, timer, timer);
-            item.transform.localScale = Vector3.Lerp(item.transform.localScale, item.transform.localScale * 0.5f, 30 * Time.deltaTime);
+            item.transform.localScale = Vector3.Lerp(item.transform.localScale, item.transform.localScale * 0.5f, 10 * Time.deltaTime);
+            
             if (timer >= 0.4f)
             {
                 timer = 0;
@@ -43,7 +54,6 @@ public class HandScript : MonoBehaviour
                 item = null;
                 itemGrabbed = false;
             }
-
         }
     }
 
@@ -51,7 +61,6 @@ public class HandScript : MonoBehaviour
     {
         
         RaycastHit hit;
-
 
         Transform sensorStarPos = GameObject.Find("Main Camera").transform;
 
@@ -63,25 +72,31 @@ public class HandScript : MonoBehaviour
                 if (hit.collider.CompareTag("PickUpCollect") == true)
                 {
                     print("pickup in reach");
+                    itemInReach = true;
 
                     if (Input.GetButtonDown("Fire1"))
                     {
+                        print("Item picked up.");
                         timer = 0;
 
                         anim.SetTrigger("pHandGrab");
-                        //hit.collider.gameObject.SetActive(false);
-                        //palm.transform.position = Vector3.Lerp(transform.position, hit.collider.gameObject.transform.position, Time.time);
-                        //palm.transform.position = Vector3.Lerp(palm.transform.position, hit.collider.gameObject.transform.position, 20);
 
                         item = hit.collider.gameObject;
                         hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false;
                         hit.collider.gameObject.GetComponent<BoxCollider>().isTrigger = true;
                         itemGrabbed = true;
-
-                        
                     }
                 }
+                else
+                {
+
+                    itemInReach = false;
+                }
             }
+        }
+        else
+        {
+            itemInReach = false;
         }
     }
 }
