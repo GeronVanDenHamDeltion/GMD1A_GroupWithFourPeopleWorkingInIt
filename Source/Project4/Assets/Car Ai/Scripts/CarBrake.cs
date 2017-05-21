@@ -15,6 +15,11 @@ public class CarBrake : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
+        StartCoroutine(waitASec());
+    }
+    public IEnumerator waitASec()
+    {
+        yield return new WaitForSeconds((Random.Range(0.1f, 2f)));
         thisEngine.brake = false;
         thisEngine.stillbrake = false;
     }

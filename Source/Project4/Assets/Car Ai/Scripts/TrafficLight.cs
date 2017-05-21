@@ -19,26 +19,22 @@ public class TrafficLight : MonoBehaviour {
     }
 	
 
-	void Update ()
+    public void Green()
     {
-		
-	}
-
-    public void OnTriggerEnter(Collider carTrig)
+        rendRed.sharedMaterial = material[0];
+        rendOrange.sharedMaterial = material[2];
+        rendGreen.sharedMaterial = material[5];
+    }
+    public void Orange()
     {
-        if (carTrig.tag == "car")
-        {
-            rendRed.sharedMaterial = material[0];
-            rendOrange.sharedMaterial = material[2];
-            rendGreen.sharedMaterial = material[5];
-        }
-
-        else if(carTrig.tag != "car")
-        {
-            rendRed.sharedMaterial = material[1];
-            rendOrange.sharedMaterial = material[2];
-            rendGreen.sharedMaterial = material[4];
-        }
-        
+        rendRed.sharedMaterial = material[0];
+        rendOrange.sharedMaterial = material[3];
+        rendGreen.sharedMaterial = material[4];
+    }
+    public void Red()
+    {
+        rendRed.sharedMaterial = material[1];
+        rendOrange.sharedMaterial = material[2];
+        rendGreen.sharedMaterial = material[4];
     }
 }

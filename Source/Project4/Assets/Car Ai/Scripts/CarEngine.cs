@@ -16,6 +16,7 @@ public class CarEngine : MonoBehaviour
     public bool stillbrake;
     public float wayPointDistance;
     public bool crossing;
+    public bool brakingReverse;
 
     [Header("Wheels")]
     public WheelCollider wheelFL;
@@ -67,7 +68,10 @@ public class CarEngine : MonoBehaviour
 	}
     private void ApplySteer()
     {
-        if (avoiding) return;
+        if (avoiding == true)
+        {
+            return;
+        }
         Vector3 RelativeVector = transform.InverseTransformPoint(nodes[currentNode].position);
         float newSteer = (RelativeVector.x / RelativeVector.magnitude) * maxSteerAngle;
         targetSteerAngle = newSteer;
@@ -106,8 +110,13 @@ public class CarEngine : MonoBehaviour
         {
             wheelRL.brakeTorque = maxBrakeTorque;
             wheelRR.brakeTorque = maxBrakeTorque;
-        }else
+            wheelFL.brakeTorque = maxBrakeTorque;
+            wheelFR.brakeTorque = maxBrakeTorque;
+        }
+        else
         {
+            wheelFL.brakeTorque = 0;
+            wheelFR.brakeTorque = 0;
             wheelRL.brakeTorque = 0;
             wheelRR.brakeTorque = 0;
         }
@@ -124,7 +133,7 @@ public class CarEngine : MonoBehaviour
         sensorStarPos += transform.right * sideSensorPos;
         if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -148,7 +157,7 @@ public class CarEngine : MonoBehaviour
         //Front Right Angle Sensors
         if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -172,7 +181,7 @@ public class CarEngine : MonoBehaviour
         sensorStarPos -= transform.right * sideSensorPos *2;
         if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
+            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -195,7 +204,7 @@ public class CarEngine : MonoBehaviour
         //Front Left Angle Sensors
         if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(-frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
+            if (hit.collider.CompareTag("Terrain") == false &&  hit.collider.CompareTag("CarTrigger") == false)
             {
                 if (hit.collider.CompareTag("SideWalk") == true)
                 {
@@ -219,7 +228,7 @@ public class CarEngine : MonoBehaviour
         {
             if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
             {
-                if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("Car") == false && hit.collider.CompareTag("CarTrigger") == false)
+                if (hit.collider.CompareTag("Terrain") == false &&  hit.collider.CompareTag("CarTrigger") == false)
                 {
                     if (hit.collider.CompareTag("SideWalk") == true)
                     {
@@ -266,4 +275,5 @@ public class CarEngine : MonoBehaviour
         wheelFL.steerAngle = Mathf.Lerp(wheelFL.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
         wheelFR.steerAngle = Mathf.Lerp(wheelFR.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
     }
+
 }
