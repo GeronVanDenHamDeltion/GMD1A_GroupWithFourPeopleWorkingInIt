@@ -30,6 +30,12 @@ public class HandScript : MonoBehaviour
     {
         CheckForObject();
 
+        if (Input.GetKey("e"))
+        {
+
+            hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1, 5, -1), 1 * Time.deltaTime);
+        }
+
         if (itemInReach || itemGrabbed)
         {
             hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1, 1, -1), 10 * Time.deltaTime);
@@ -67,8 +73,15 @@ public class HandScript : MonoBehaviour
         Debug.DrawRay(sensorStarPos.position, sensorStarPos.forward * sensorLength);
         if (Physics.Raycast(sensorStarPos.position, sensorStarPos.transform.forward, out hit, sensorLength))
         {
+            if (hit.collider.CompareTag("Terrain"))
+            {
+                itemInReach = false;
+            }
+
             if (hit.collider.CompareTag("Terrain") == false)
             {
+
+
                 if (hit.collider.CompareTag("PickUpCollect") == true)
                 {
                     print("pickup in reach");
@@ -87,11 +100,25 @@ public class HandScript : MonoBehaviour
                         itemGrabbed = true;
                     }
                 }
-                else
-                {
 
-                    itemInReach = false;
+
+
+                else if (hit.collider.CompareTag("PickUpInteract") == true)
+                {
+                    print("Interact in reach");
+                    itemInReach = true;
+
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        print("Interacted");
+                        
+
+                        anim.SetTrigger("pHandPress");
+
+
+                    }
                 }
+
             }
         }
         else
