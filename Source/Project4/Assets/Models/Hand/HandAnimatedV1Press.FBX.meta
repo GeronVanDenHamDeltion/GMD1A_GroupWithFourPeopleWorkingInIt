@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4d01fc079bb520c40bf658e78e50e2e3
-timeCreated: 1495439377
+guid: 70be762874e397940959829af8caaa48
+timeCreated: 1495445583
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -100,7 +100,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -176,7 +176,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Press
       takeName: Take 001
-      firstFrame: 0
+      firstFrame: 4
       lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
@@ -184,7 +184,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
