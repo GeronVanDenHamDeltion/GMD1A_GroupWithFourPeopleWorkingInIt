@@ -90,7 +90,7 @@ public class HandScript : MonoBehaviour
 
                 if (hit.collider.CompareTag("PickUpCollect") == true)
                 {
-                    print("pickup in reach");
+                    //print("pickup in reach");
                     itemInReach = true;
                     hand.transform.position = Vector3.Lerp(hand.transform.position, defaultLocation.transform.position, 20 * Time.deltaTime);
 
@@ -112,7 +112,7 @@ public class HandScript : MonoBehaviour
 
                 else if (hit.collider.CompareTag("PickUpInteract") == true)
                 {
-                    print("Interact in reach");
+                    //print("Interact in reach");
                     itemInReach = true;
                     hand.transform.position = Vector3.Lerp(hand.transform.position, pointerLocation.transform.position, 10 * Time.deltaTime);
 
