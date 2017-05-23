@@ -8,6 +8,9 @@ public class HandScript : MonoBehaviour
     public GameObject palm;
     public GameObject player;
     public GameObject item;
+    public GameObject pointerLocation;
+    public GameObject defaultLocation;
+    
 
     public Animator anim;
 
@@ -23,12 +26,20 @@ public class HandScript : MonoBehaviour
         player = GameObject.Find("Player");
         hand = this.gameObject;
         anim = hand.GetComponent<Animator>();
+        pointerLocation = GameObject.Find("PointerLocation");
+        defaultLocation = GameObject.Find("DefaultLocation");
     }
 
 
     void Update()
     {
         CheckForObject();
+
+        if (Input.GetKey("e"))
+        {
+
+            hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1, 5, -1), 1 * Time.deltaTime);
+        }
 
         if (itemInReach || itemGrabbed)
         {
@@ -67,14 +78,22 @@ public class HandScript : MonoBehaviour
         Debug.DrawRay(sensorStarPos.position, sensorStarPos.forward * sensorLength);
         if (Physics.Raycast(sensorStarPos.position, sensorStarPos.transform.forward, out hit, sensorLength))
         {
+            if (hit.collider.CompareTag("Terrain"))
+            {
+                itemInReach = false;
+            }
+
             if (hit.collider.CompareTag("Terrain") == false)
             {
+
+
                 if (hit.collider.CompareTag("PickUpCollect") == true)
                 {
                     print("pickup in reach");
                     itemInReach = true;
+                    hand.transform.position = Vector3.Lerp(hand.transform.position, defaultLocation.transform.position, 20 * Time.deltaTime);
 
-                    if (Input.GetButtonDown("Fire1"))
+                    if (Input.GetButtonDown("Fire1") && timer == 0)
                     {
                         print("Item picked up.");
                         timer = 0;
@@ -87,11 +106,30 @@ public class HandScript : MonoBehaviour
                         itemGrabbed = true;
                     }
                 }
+
+
+
+                else if (hit.collider.CompareTag("PickUpInteract") == true)
+                {
+                    print("Interact in reach");
+                    itemInReach = true;
+                    hand.transform.position = Vector3.Lerp(hand.transform.position, pointerLocation.transform.position, 10 * Time.deltaTime);
+
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        print("Interacted");
+
+                        
+                        anim.SetTrigger("pHandPress");
+
+
+                    }
+                }
                 else
                 {
-
-                    itemInReach = false;
+                    
                 }
+
             }
         }
         else
