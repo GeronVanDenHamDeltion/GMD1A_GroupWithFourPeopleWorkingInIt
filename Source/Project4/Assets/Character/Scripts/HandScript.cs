@@ -51,7 +51,7 @@ public class HandScript : MonoBehaviour
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);
             item.transform.rotation = palm.transform.rotation;
             timer += Time.deltaTime;
-            item.transform.localScale = Vector3.Lerp(item.transform.localScale, item.transform.localScale * 0.5f, 10 * Time.deltaTime);
+            item.transform.localScale = Vector3.Lerp(item.transform.localScale * 0.8f, item.transform.localScale * 0.7f, 1 * Time.deltaTime);
             
             if (timer >= 0.4f)
             {
