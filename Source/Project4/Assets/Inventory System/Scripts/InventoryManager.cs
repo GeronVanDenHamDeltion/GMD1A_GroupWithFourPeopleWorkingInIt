@@ -53,6 +53,7 @@ public class InventoryManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
+        Inventory.GetComponent<Inventory>().UpdateSprites();
         camMouseLook.enabled = false;
         handMouseLook.enabled = false;
         playermovement.enabled = false;

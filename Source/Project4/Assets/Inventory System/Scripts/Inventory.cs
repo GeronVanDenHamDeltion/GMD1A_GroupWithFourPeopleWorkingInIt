@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
 
     private int currentPlace;
     
-    void Start()
+    void Awake()
     {
         DisplayNothing();
         for (int i  = 0; i < InventorySlots.Count; i++)
@@ -113,7 +113,7 @@ public class Inventory : MonoBehaviour
     {
         for(int i = 0; i < InventorySlots.Count; i++)
         {
-            print(InventoryItems[i].thisItem);
+            //print(InventoryItems[i].thisItem);
             if (InventoryItems[i].isFilled == true)
             {
                 InventorySlots[i].sprite = InventoryItems[i].spriteOfThisItem;
