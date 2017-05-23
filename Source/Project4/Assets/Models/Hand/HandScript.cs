@@ -61,7 +61,8 @@ public class HandScript : MonoBehaviour
             if (timer >= 0.4f)
             {
                 timer = 0;
-                item.SetActive(false);
+                item.GetComponent<ItemInformation>().AddToInv();
+                Destroy(item);
                 item = null;
                 itemGrabbed = false;
             }
