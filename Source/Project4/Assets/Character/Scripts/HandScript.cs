@@ -17,6 +17,7 @@ public class HandScript : MonoBehaviour
     public bool itemGrabbed;
     public bool itemInReach;
 
+
     public float timer;       
     public float sensorLength;
 
@@ -35,12 +36,6 @@ public class HandScript : MonoBehaviour
     {
         CheckForObject();
 
-        if (Input.GetKey("e"))
-        {
-
-            hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1, 5, -1), 1 * Time.deltaTime);
-        }
-
         if (itemInReach || itemGrabbed)
         {
             hand.transform.localScale = Vector3.Lerp(hand.transform.localScale, new Vector3(1, 1, -1), 10 * Time.deltaTime);
@@ -56,7 +51,7 @@ public class HandScript : MonoBehaviour
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);
             item.transform.rotation = palm.transform.rotation;
             timer += Time.deltaTime;
-            item.transform.localScale = Vector3.Lerp(item.transform.localScale, item.transform.localScale * 0.5f, 10 * Time.deltaTime);
+            item.transform.localScale = Vector3.Lerp(item.transform.localScale * 0.8f, item.transform.localScale * 0.7f, 1 * Time.deltaTime);
             
             if (timer >= 0.4f)
             {
