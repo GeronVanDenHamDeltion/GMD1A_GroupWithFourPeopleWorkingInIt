@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 3e0bb95f74400a848b76df13b859d061
+timeCreated: 1496321589
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Church
+    100002: //RootNode
+    100004: ChurchDoor
+    100006: ChurchWindow002
+    100008: ChurchWindow003
+    100010: ChurchWindow005
+    100012: ChurchWindow007
+    100014: ChurchWindow009
+    100016: ChurchWindow011
+    100018: ChurchWindow013
+    100020: ChurchWindow015
+    100022: ChurchWindows
+    100024: Door2
+    100026: DoorFrame
+    100028: Roof
+    100030: Stairs
+    100032: Tower
+    100034: WindowFrame006
+    400000: Church
+    400002: //RootNode
+    400004: ChurchDoor
+    400006: ChurchWindow002
+    400008: ChurchWindow003
+    400010: ChurchWindow005
+    400012: ChurchWindow007
+    400014: ChurchWindow009
+    400016: ChurchWindow011
+    400018: ChurchWindow013
+    400020: ChurchWindow015
+    400022: ChurchWindows
+    400024: Door2
+    400026: DoorFrame
+    400028: Roof
+    400030: Stairs
+    400032: Tower
+    400034: WindowFrame006
+    2300000: Church
+    2300002: ChurchWindow002
+    2300004: ChurchWindow003
+    2300006: ChurchWindow005
+    2300008: ChurchWindow007
+    2300010: ChurchWindow009
+    2300012: ChurchWindow011
+    2300014: ChurchWindow013
+    2300016: ChurchWindow015
+    2300018: Door2
+    2300020: DoorFrame
+    2300022: Roof
+    2300024: Stairs
+    2300026: Tower
+    2300028: WindowFrame006
+    3300000: Church
+    3300002: ChurchWindow002
+    3300004: ChurchWindow003
+    3300006: ChurchWindow005
+    3300008: ChurchWindow007
+    3300010: ChurchWindow009
+    3300012: ChurchWindow011
+    3300014: ChurchWindow013
+    3300016: ChurchWindow015
+    3300018: Door2
+    3300020: DoorFrame
+    3300022: Roof
+    3300024: Stairs
+    3300026: Tower
+    3300028: WindowFrame006
+    4300000: Stairs
+    4300002: DoorFrame
+    4300004: Door2
+    4300006: Church
+    4300008: WindowFrame006
+    4300010: ChurchWindow015
+    4300012: ChurchWindow013
+    4300014: ChurchWindow011
+    4300016: ChurchWindow009
+    4300018: ChurchWindow007
+    4300020: ChurchWindow005
+    4300022: ChurchWindow003
+    4300024: ChurchWindow002
+    4300026: Roof
+    4300028: Tower
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
