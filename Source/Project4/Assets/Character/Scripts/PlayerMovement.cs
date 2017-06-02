@@ -9,6 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public bool jumppushed;
     public float timer;
 
+    public PlayerBodyScript playerBodyScript;
+
+
+
+
+
     void FixedUpdate()
     {
 
@@ -23,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
         horizontal *= Time.deltaTime;
 
         transform.Translate(horizontal, 0, vertical);  
+
+        
 
     }
 
@@ -57,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpspeed);
         jumppushed = true;
+        playerBodyScript.Jump();
     }
 
 }
