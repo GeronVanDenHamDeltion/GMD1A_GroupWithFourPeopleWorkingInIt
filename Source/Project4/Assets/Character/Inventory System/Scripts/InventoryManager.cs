@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public bool inventoryIsOpen;
+    public static bool inventoryIsOpen;
     public GameObject Inventory;
     public CamMouseLook camMouseLook;
     public CamMouseLook handMouseLook;

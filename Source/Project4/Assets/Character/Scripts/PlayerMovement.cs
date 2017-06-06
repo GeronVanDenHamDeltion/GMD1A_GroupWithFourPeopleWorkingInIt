@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed;
+    public float runningSpeed;
+    public float walkingSpeed;
     public float jumpspeed;
     public bool jumppushed;
     public float timer;
@@ -59,6 +61,16 @@ public class PlayerMovement : MonoBehaviour
         horizontal *= Time.deltaTime;
 
         transform.Translate(horizontal, 0, vertical);
+
+        if (Input.GetButton("Fire3"))
+        {
+            speed = runningSpeed;
+            playerBodyScript.animationState = PlayerBodyScript.AnimationState.Run;
+        }
+        else
+        {
+            speed = walkingSpeed;
+        }
     }
 
     public void Jump()
