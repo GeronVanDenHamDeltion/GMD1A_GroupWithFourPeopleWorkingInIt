@@ -14,7 +14,7 @@ public class HandScript : MonoBehaviour
     public GameObject lowerArm;
     public GameObject bodyHand;
 
-    public Transform testBall;
+    //public Transform testBall;
 
 
     public Animator anim;
@@ -85,7 +85,7 @@ public class HandScript : MonoBehaviour
         Debug.DrawLine(sensorStarPos.position, sensorStarPos.forward * sensorLength);
         if (Physics.Raycast(sensorStarPos.position, sensorStarPos.forward, out hit, sensorLength))
         {
-            testBall.transform.position = hit.point;
+            //testBall.transform.position = hit.point;
             if (hit.collider.CompareTag("PickUpCollect") == true)
             {
                 itemInReach = true;

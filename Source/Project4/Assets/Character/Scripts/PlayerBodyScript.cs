@@ -23,17 +23,19 @@ public class PlayerBodyScript : MonoBehaviour {
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
-        vertical *= Time.deltaTime;
-        horizontal *= Time.deltaTime;
 
-        if (vertical != 0 || horizontal != 0)
+        if(!Input.GetButton("Fire3"))
         {
-            animationState = AnimationState.Walk;
+            if (vertical != 0 || horizontal != 0)
+            {
+                animationState = AnimationState.Walk;
+            }
+            else
+            {
+                animationState = AnimationState.Idle;
+            }
         }
-        else
-        {
-            animationState = AnimationState.Idle;
-        }
+
 
         if (animationState == AnimationState.Idle)
         {
