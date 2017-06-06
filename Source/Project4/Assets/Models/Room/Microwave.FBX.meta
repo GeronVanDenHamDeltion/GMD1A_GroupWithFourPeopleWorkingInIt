@@ -1,24 +1,15 @@
 fileFormatVersion: 2
-guid: c9e64f9b91126e04b819a6f5716468f6
-timeCreated: 1495181362
+guid: ff12ac35bc18eca43b8b984f4d29fca0
+timeCreated: 1496752761
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Drawer
-    100004: Handles
     400000: //RootNode
-    400002: Drawer
-    400004: Handles
     2300000: //RootNode
-    2300002: Drawer
-    2300004: Handles
     3300000: //RootNode
-    3300002: Drawer
-    3300004: Handles
-    4300000: Drawer
-    4300002: Handles
+    4300000: Box001
     9500000: //RootNode
   materials:
     importMaterials: 1
