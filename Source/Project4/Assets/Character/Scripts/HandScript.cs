@@ -91,7 +91,7 @@ public class HandScript : MonoBehaviour
                 itemInReach = true;
                 hand.transform.position = Vector3.Lerp(hand.transform.position, defaultLocation.transform.position, 20 * Time.deltaTime);
 
-                if (Input.GetButtonDown("Fire1") && timer == 0)
+                if (Input.GetButtonDown("Fire1") && timer == 0 && !InventoryManager.inventoryIsOpen)
                 {
                     print("Item picked up.");
                     timer = 0;
