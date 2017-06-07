@@ -6,10 +6,30 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Bed
+    100004: Blanket
+    100006: Pillow
+    100008: Stands
     400000: //RootNode
+    400002: Bed
+    400004: Blanket
+    400006: Pillow
+    400008: Stands
     2300000: //RootNode
+    2300002: Bed
+    2300004: Blanket
+    2300006: Pillow
+    2300008: Stands
     3300000: //RootNode
+    3300002: Bed
+    3300004: Blanket
+    3300006: Pillow
+    3300008: Stands
     4300000: Box001
+    4300002: Bed
+    4300004: Pillow
+    4300006: Blanket
+    4300008: Stands
     9500000: //RootNode
   materials:
     importMaterials: 1
