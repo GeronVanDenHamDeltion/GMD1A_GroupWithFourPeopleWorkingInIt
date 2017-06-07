@@ -5,25 +5,24 @@ using UnityEngine;
 public class NPCWalking : MonoBehaviour
 {
     public Transform path;
-    public float turnSpeed;
-    public float maxSteerAngle;
-    public float maxBrakeTorque;
-    public float maxMotorTorque;
     public float Speed;
     public float maxspeed;
     public float wayPointDistance;
     public bool stop;
+    public float turnSpeed;
+    public List<Transform> nodes;
+    public int currentNode = 0;
+    public NPCScript stateScript;
+    public bool triggerMode;
+    public GameObject player;
 
     [Header("Sensors")]
     public float sensorLength;
     public Vector3 frontSensorPos;
-    public float sideSensorPos;
-    public float frontSensorAngle;
-    public float sideWalkPos;
 
+    private Vector3 direction;
+    private Quaternion lookRotationQuat;
     private bool avoiding = false;
-    public List<Transform> nodes;
-    public int currentNode = 0;
     private float targetSteerAngle = 0f;
 
     void Start ()
@@ -44,37 +43,55 @@ public class NPCWalking : MonoBehaviour
     }
 	void FixedUpdate ()
     {
-        ApplySteer();
         Walk();
         CheckWayPointDistance();
-        Braking();
-	}
-    private void ApplySteer()
-    {
-        if (avoiding == true)
+        if (triggerMode == false)
         {
-            return;
+            Braking();
+            Sensor();
         }
-        //Vector3 RelativeVector = transform.InverseTransformPoint(nodes[currentNode].position);
-        //float newSteer = (RelativeVector.x / RelativeVector.magnitude) * maxSteerAngle;
-        //targetSteerAngle = newSteer;
-    }
+	}
     private void Walk()
     {
-        transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, Speed);
+        if (triggerMode == false)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, Speed);
+        }else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Speed);
+            stateScript.animationState = NPCScript.AnimationState.Run;
+        }
     }
     private void CheckWayPointDistance()
     {
+        if (triggerMode == true)
+        {
+            direction = (player.transform.position - transform.position).normalized;
+            lookRotationQuat = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotationQuat, Time.deltaTime * turnSpeed);
+            return;
+        }
         if (Vector3.Distance(transform.position, nodes[currentNode].position) < wayPointDistance)
         {
-            if(currentNode == nodes.Count - 1)
-            {
-                currentNode = 0;
-            }else
-            {
-                currentNode++;
-            }
-        } 
+            StartCoroutine(rotationspeed());
+        }
+    }
+    public IEnumerator rotationspeed()
+    {
+        maxspeed = maxspeed / 2;
+        if (currentNode == nodes.Count - 1)
+        {
+            currentNode = 0;
+        }
+        else
+        {
+            currentNode++;
+        }
+        direction = (nodes[currentNode].position - transform.position).normalized;
+        lookRotationQuat = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotationQuat, Time.deltaTime * turnSpeed);
+        yield return new WaitForSeconds(2);
+        maxspeed = maxspeed * 2;
     }
     private void Braking()
     {
@@ -87,148 +104,21 @@ public class NPCWalking : MonoBehaviour
             Speed = maxspeed;
         }
     }
-    private void Sensors()
+    private void Sensor()
     {
         RaycastHit hit;
-        Vector3 sensorStarPos = transform.position;
-        sensorStarPos += transform.forward * frontSensorPos.z;
-        float avoidMultiplier = 0;
+        Vector3 sensorStartPos = transform.position;
+        sensorStartPos = sensorStartPos + frontSensorPos;
         avoiding = false;
-
-        //Front Right Side Sensors
-        sensorStarPos += transform.right * sideSensorPos;
-        if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
+        if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength))
         {
-            Debug.DrawLine(sensorStarPos, hit.point);
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("CarTrigger") == false)
-            {
-                if (hit.collider.CompareTag("SideWalk") == true)
-                {
-                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
-                    {
-                        avoiding = true;
-                        avoidMultiplier -= 1f;
-                    }
-                }
-                else
-                {
-                    avoiding = true;
-                    avoidMultiplier -= 1f;
-                }
-                
-            }
-        }
-        
-        //Front Right Angle Sensors
-        if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
+            Debug.DrawLine(sensorStartPos, hit.point);
+            stop = true;
+            stateScript.animationState = NPCScript.AnimationState.Idle;
+        }else
         {
-            Debug.DrawLine(sensorStarPos, hit.point);
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("CarTrigger") == false)
-            {
-                if (hit.collider.CompareTag("SideWalk") == true)
-                {
-                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
-                    {
-                        avoiding = true;
-                        avoidMultiplier -= 0.5f;
-                    }
-                }
-                else
-                {
-                    avoiding = true;
-                    avoidMultiplier -= 0.5f;
-                }
-            }
+            stop = false;
+            stateScript.animationState = NPCScript.AnimationState.Walk;
         }
-
-        //Front left Side Sensors
-        sensorStarPos -= transform.right * sideSensorPos *2;
-        if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
-        {
-            Debug.DrawLine(sensorStarPos, hit.point);
-            if (hit.collider.CompareTag("Terrain") == false && hit.collider.CompareTag("CarTrigger") == false)
-            {
-                if (hit.collider.CompareTag("SideWalk") == true)
-                {
-                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
-                    {
-                        avoiding = true;
-                        avoidMultiplier += 1f;
-                    }
-                }
-                else
-                {
-                    avoiding = true;
-                    avoidMultiplier += 1f;
-                }
-            }
-        }
-        
-        //Front Left Angle Sensors
-        if (Physics.Raycast(sensorStarPos, Quaternion.AngleAxis(-frontSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
-        {
-            Debug.DrawLine(sensorStarPos, hit.point);
-            if (hit.collider.CompareTag("Terrain") == false &&  hit.collider.CompareTag("CarTrigger") == false)
-            {
-                if (hit.collider.CompareTag("SideWalk") == true)
-                {
-                    if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
-                    {
-                        avoiding = true;
-                        avoidMultiplier += 0.5f;
-                    }
-                }
-                else
-                {
-                    avoiding = true;
-                    avoidMultiplier += 0.5f;
-                }
-            }
-        }
-        //front Center Sensor
-        if (avoidMultiplier < 0.4f && avoidMultiplier > -0.4f)
-        {
-            if (Physics.Raycast(sensorStarPos, transform.forward, out hit, sensorLength))
-            {
-                Debug.DrawLine(sensorStarPos, hit.point);
-                if (hit.collider.CompareTag("Terrain") == false &&  hit.collider.CompareTag("CarTrigger") == false)
-                {
-                    if (hit.collider.CompareTag("SideWalk") == true)
-                    {
-                        if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
-                        {
-                            avoiding = true;
-                            if (hit.normal.x < 0)
-                            {
-                                avoidMultiplier = -1;
-                            }
-                            else
-                            {
-                                avoidMultiplier = 1;
-                            }
-                        }
-
-                    }
-                    else
-                    {
-                        avoiding = true;
-                        if (hit.normal.x < 0)
-                        {
-                            avoidMultiplier = -1;
-                        }
-                        else
-                        {
-                            avoidMultiplier = 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (avoiding == true)
-        {
-            targetSteerAngle = maxSteerAngle * avoidMultiplier;
-        }
-        //print(avoidMultiplier);
     }
 }

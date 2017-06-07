@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCscript : MonoBehaviour {
-
+public class NPCScript : MonoBehaviour
+{
+    public enum AnimationState
+    {
+        Idle,
+        Walk,
+        Run
+    }
     public Rigidbody rb;
     public Animator anim;
-
-    public enum AnimationState { Idle, Walk, Run };
     public AnimationState animationState;
 
     void Start()
