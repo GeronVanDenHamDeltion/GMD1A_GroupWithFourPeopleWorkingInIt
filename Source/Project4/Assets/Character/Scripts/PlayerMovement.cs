@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(horizontal, 0, vertical);
 
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire3") && playerBodyScript.animationState != PlayerBodyScript.AnimationState.Idle)
         {
             speed = runningSpeed;
             playerBodyScript.animationState = PlayerBodyScript.AnimationState.Run;
