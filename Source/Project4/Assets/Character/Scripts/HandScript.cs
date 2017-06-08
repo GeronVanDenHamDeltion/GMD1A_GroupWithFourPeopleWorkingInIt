@@ -100,7 +100,7 @@ public class HandScript : MonoBehaviour
 
                     item = hit.collider.gameObject;
                     hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                    hit.collider.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                    hit.collider.gameObject.GetComponent<Collider>().isTrigger = true;
                     itemGrabbed = true;
                 }
             }
