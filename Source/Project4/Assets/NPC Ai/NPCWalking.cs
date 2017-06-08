@@ -40,6 +40,9 @@ public class NPCWalking : MonoBehaviour
     }
 	void Update()
     {
+        direction = (nodes[currentNode].position - transform.position).normalized;
+        lookRotationQuat = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotationQuat, Time.time * turnSpeed);
     }
 	void FixedUpdate ()
     {
@@ -66,9 +69,6 @@ public class NPCWalking : MonoBehaviour
     {
         if (triggerMode == true)
         {
-            direction = (player.transform.position - transform.position).normalized;
-            lookRotationQuat = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotationQuat, Time.deltaTime * turnSpeed);
             return;
         }
         if (Vector3.Distance(transform.position, nodes[currentNode].position) < wayPointDistance)
@@ -87,9 +87,6 @@ public class NPCWalking : MonoBehaviour
         {
             currentNode++;
         }
-        direction = (nodes[currentNode].position - transform.position).normalized;
-        lookRotationQuat = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotationQuat, Time.deltaTime * turnSpeed);
         yield return new WaitForSeconds(2);
         maxspeed = maxspeed * 2;
     }
