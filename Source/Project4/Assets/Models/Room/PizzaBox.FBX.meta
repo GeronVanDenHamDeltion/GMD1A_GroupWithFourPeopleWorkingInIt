@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ff12ac35bc18eca43b8b984f4d29fca0
-timeCreated: 1496752761
+guid: f9ea0582b3192054aaa91ab0fc6474a4
+timeCreated: 1496920238
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box001
-    4300002: Microwave
+    4300000: PizzaBox
     9500000: //RootNode
   materials:
     importMaterials: 1
