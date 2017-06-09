@@ -103,6 +103,11 @@ public class HandScript : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Collider>().isTrigger = true;
                     itemGrabbed = true;
                 }
+                
+                if (Input.GetButtonDown("Fire2") && timer == 0 && !InventoryManager.inventoryIsOpen)
+                {
+
+                }
             }
 
 

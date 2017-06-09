@@ -9,6 +9,8 @@ public class InventoryManager : MonoBehaviour
     public CamMouseLook camMouseLook;
     public CamMouseLook handMouseLook;
     public PlayerMovement playermovement;
+    public GameObject uiBook;
+    public PlayerBodyScript playerbodyScript;
 
     void Start()
     {
@@ -52,21 +54,25 @@ public class InventoryManager : MonoBehaviour
         Inventory.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         Inventory.GetComponent<Inventory>().UpdateSprites();
         camMouseLook.enabled = false;
         handMouseLook.enabled = false;
         playermovement.enabled = false;
+        uiBook.SetActive(true);
+        
+        
 
     }
     public void CloseInventory()
     {
         Inventory.SetActive(false);
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         camMouseLook.enabled = true;
         handMouseLook.enabled = true;
         playermovement.enabled = true;
+        uiBook.SetActive(false);     
     }
 }
