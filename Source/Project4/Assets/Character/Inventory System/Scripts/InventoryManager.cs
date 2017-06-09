@@ -52,7 +52,7 @@ public class InventoryManager : MonoBehaviour
         Inventory.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         Inventory.GetComponent<Inventory>().UpdateSprites();
         camMouseLook.enabled = false;
         handMouseLook.enabled = false;
@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
     public void CloseInventory()
     {
         Inventory.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         camMouseLook.enabled = true;
