@@ -14,6 +14,9 @@ public class HandScript : MonoBehaviour
     public GameObject lowerArm;
     public GameObject bodyHand;
 
+
+
+
     //public Transform testBall;
 
 
@@ -39,6 +42,7 @@ public class HandScript : MonoBehaviour
 
     void Update()
     {
+        
         CheckForObject();
 
         if (itemInReach || itemGrabbed)
@@ -58,7 +62,6 @@ public class HandScript : MonoBehaviour
 
         if (itemGrabbed)
         {
-
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);
             item.transform.rotation = palm.transform.rotation;
             timer += Time.deltaTime;
@@ -85,7 +88,6 @@ public class HandScript : MonoBehaviour
         Debug.DrawLine(sensorStarPos.position, sensorStarPos.forward * sensorLength);
         if (Physics.Raycast(sensorStarPos.position, sensorStarPos.forward, out hit, sensorLength))
         {
-            //testBall.transform.position = hit.point;
             if (hit.collider.CompareTag("PickUpCollect") == true)
             {
                 itemInReach = true;
@@ -95,21 +97,13 @@ public class HandScript : MonoBehaviour
                 {
                     print("Item picked up.");
                     timer = 0;
-
                     anim.SetTrigger("pHandGrab");
-
                     item = hit.collider.gameObject;
                     hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false;
                     hit.collider.gameObject.GetComponent<Collider>().isTrigger = true;
                     itemGrabbed = true;
                 }
-                
-                if (Input.GetButtonDown("Fire2") && timer == 0 && !InventoryManager.inventoryIsOpen)
-                {
-
-                }
             }
-
 
             if (hit.collider.CompareTag("PickUpInteract") == true)
             {
@@ -120,29 +114,22 @@ public class HandScript : MonoBehaviour
                 if (Input.GetButtonDown("Fire1"))
                 {
                     print("Interacted");
-
-
                     anim.SetTrigger("pHandPress");
-
-
                 }
-            }else
-            {
-                print(hit.collider.transform.name);
             }
 
-            if (hit.collider.CompareTag("PickUpInteract") == false && hit.collider.CompareTag("PickUpCollect") == false)
+            
+
+
+                if (hit.collider.CompareTag("PickUpInteract") == false && hit.collider.CompareTag("PickUpCollect") == false)
             {
                 itemInReach = false;
-
             }
-
-
         }
+
         else
         {
             itemInReach = false;
         }
-
     }
 }
