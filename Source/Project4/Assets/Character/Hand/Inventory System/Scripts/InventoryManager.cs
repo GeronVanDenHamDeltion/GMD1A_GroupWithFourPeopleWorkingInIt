@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     public CamMouseLook camMouseLook;
     public CamMouseLook handMouseLook;
     public PlayerMovement playermovement;
+    
 
     void Start()
     {
