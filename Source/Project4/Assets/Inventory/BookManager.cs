@@ -10,50 +10,93 @@ public class BookManager : MonoBehaviour
         first,
         second,
         third,
-        Fourth
+        fourth,
+        fifth
     }
     public pages currentPageNumer;
-    public Image pageOne;
-    public Image pageTwo;
-    public Image pageThree;
-    public Image pageFourNoteOne;
-    public Image pageFive;
-    public Image pageSixNoteTwo;
-    public Image pageSeven;
-    public Image pageEightNoteThree;
-    public Image rippedOutPage;
-    public bool noteOnePickupUp;
-    public bool noteTwoPickupUp;
-    public bool noteThreePickupUp;
+    public List<Sprite> pageSprites = new List<Sprite>();
+    public List<bool> pageAbleToSee = new List<bool>();
+    public Sprite rippedOutPage;
+    public Image bookOne;
+    public Image bookTwo;
 
-    public void enableNote(int i)
-    {
-        if (i == 1)
-        {
-            noteOnePickupUp = true;
-        }
-        if (i == 2)
-        {
-            noteTwoPickupUp = true;
-        }
-        if (i == 3)
-        {
-            noteThreePickupUp = true;
-        }
-    }
-    public void nextPage()
+    public void UpdateBook()
     {
         if (currentPageNumer == pages.first)
         {
-
+            //quests
+            bookOne.sprite = pageSprites[0];
+            bookTwo.sprite = pageSprites[1];
         }
-    }
-    public void previousPage()
-    {
-        if (currentPageNumer == pages.first)
+        if (currentPageNumer == pages.second)
         {
-            return;
+            //map
+            bookOne.sprite = pageSprites[2];
+            bookTwo.sprite = pageSprites[3];
+        }
+        if (currentPageNumer == pages.third)
+        {
+            //first memo's
+            if (pageAbleToSee[0] == true)
+            {
+                bookOne.sprite = pageSprites[4];
+            }
+            else
+            {
+                bookOne.sprite = rippedOutPage;
+            }
+            if (pageAbleToSee[1] == true)
+            {
+                bookOne.sprite = pageSprites[5];
+            }
+            else
+            {
+                bookOne.sprite = rippedOutPage;
+            }
+        }
+        if (currentPageNumer == pages.fourth)
+        {
+            //second memo's
+            if (pageAbleToSee[2] == true)
+            {
+                bookOne.sprite = pageSprites[6];
+            }
+            else
+            {
+                bookOne.sprite = rippedOutPage;
+            }
+            if (pageAbleToSee[3] == true)
+            {
+                bookOne.sprite = pageSprites[7];
+            }
+            else
+            {
+                bookOne.sprite = rippedOutPage;
+            }
+        }
+        if (currentPageNumer == pages.fifth)
+        {
+            //second memo's
+            if (pageAbleToSee[4] == true)
+            {
+                bookOne.sprite = pageSprites[8];
+            }
+            else
+            {
+                bookOne.sprite = rippedOutPage;
+            }
+            if (pageAbleToSee[5] == true)
+            {
+                bookOne.sprite = pageSprites[9];
+            }
+            else
+            {
+                bookOne.sprite = rippedOutPage;
+            }
         }
     }
+    public void PickedUpObject(int i)
+    {
 
+    }
 }
