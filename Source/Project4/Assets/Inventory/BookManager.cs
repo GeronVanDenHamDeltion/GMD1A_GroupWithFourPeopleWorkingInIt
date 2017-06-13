@@ -19,6 +19,9 @@ public class BookManager : MonoBehaviour
     public Sprite rippedOutPage;
     public Image bookOne;
     public Image bookTwo;
+    public Button forwardButton;
+    public Button backwardButton;
+    public GameObject inventory;
 
     public void UpdateBook()
     {
@@ -27,6 +30,7 @@ public class BookManager : MonoBehaviour
             //quests
             bookOne.sprite = pageSprites[0];
             bookTwo.sprite = pageSprites[1];
+            backwardButton.enabled = false;
         }
         if (currentPageNumer == pages.second)
         {
@@ -93,10 +97,70 @@ public class BookManager : MonoBehaviour
             {
                 bookOne.sprite = rippedOutPage;
             }
+            forwardButton.enabled = false;
         }
     }
     public void PickedUpObject(int i)
     {
-
+        pageAbleToSee[i - 1] = true;
+    }
+    public void updateBook(bool forward)
+    {
+        if (currentPageNumer == pages.first && forward == false)
+        {
+            currentPageNumer = pages.first;
+        } 
+        else if (currentPageNumer == pages.first && forward == true)
+        {
+            currentPageNumer = pages.second;
+        }
+        else if (currentPageNumer == pages.second && forward == false)
+        {
+            currentPageNumer = pages.first;
+        }
+        else if (currentPageNumer == pages.second && forward == true)
+        {
+            currentPageNumer = pages.third;
+        }
+        else if (currentPageNumer == pages.third && forward == false)
+        {
+            currentPageNumer = pages.second;
+        }
+        else if (currentPageNumer == pages.third && forward == true)
+        {
+            currentPageNumer = pages.fourth;
+        }
+        else if (currentPageNumer == pages.fourth && forward == false)
+        {
+            currentPageNumer = pages.third;
+        }
+        else if (currentPageNumer == pages.fourth && forward == true)
+        {
+            currentPageNumer = pages.fifth;
+        }
+        else if (currentPageNumer == pages.fifth && forward == false)
+        {
+            currentPageNumer = pages.fourth;
+        }
+        else if (currentPageNumer == pages.fifth && forward == true)
+        {
+            currentPageNumer = pages.fifth;
+        }
+        backwardButton.enabled = true;
+        forwardButton.enabled = true;
+        UpdateBook();
+    }
+    public void Update()
+    {
+        if (Input.GetButtonDown("Inventory") && inventory.activeInHierarchy == false)
+        {
+            inventory.SetActive(true);
+            currentPageNumer = pages.first;
+            UpdateBook();
+        }
+        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("cancel") )&& inventory.activeInHierarchy == true)
+        {
+            inventory.SetActive(false);
+        }
     }
 }
