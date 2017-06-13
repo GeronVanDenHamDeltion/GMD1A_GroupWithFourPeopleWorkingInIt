@@ -57,7 +57,7 @@ public class CrossPoint : MonoBehaviour
     }
     public IEnumerator position()
     {
-        print(currentcount);
+        //print(currentcount);
         trafficLights[currentcount].Green();
         Stops[currentcount].needsToBrake = false;
         Stops[currentcount].ChangeBrake();

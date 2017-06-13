@@ -9,12 +9,9 @@ public class InventoryManager : MonoBehaviour
     public CamMouseLook camMouseLook;
     public CamMouseLook handMouseLook;
     public PlayerMovement playermovement;
-<<<<<<< HEAD
-    
-=======
+
     public GameObject uiBook;
     public PlayerBodyScript playerbodyScript;
->>>>>>> origin/master
 
     void Start()
     {
