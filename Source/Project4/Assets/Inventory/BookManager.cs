@@ -158,7 +158,7 @@ public class BookManager : MonoBehaviour
             currentPageNumer = pages.first;
             UpdateBook();
         }
-        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("cancel") )&& inventory.activeInHierarchy == true)
+        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel") )&& inventory.activeInHierarchy == true)
         {
             inventory.SetActive(false);
         }

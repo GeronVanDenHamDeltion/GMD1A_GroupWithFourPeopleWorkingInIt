@@ -11,6 +11,6 @@ public class ItemInformation : MonoBehaviour
 
     public void AddToInv() 
     {
-        inventory.InventoryChange(thisitem);
+        //inventory.InventoryChange(thisitem);
     }
 }
