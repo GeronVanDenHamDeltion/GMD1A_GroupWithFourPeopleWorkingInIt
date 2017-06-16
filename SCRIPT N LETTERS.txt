@@ -1,0 +1,52 @@
+Apparment: Darker lighting, normal colors.
+
+Date: Unkown
+
+Entry 1:
+Today I have received three letters. I don't know from who, but I am afraid it might be something confronting
+I don't know if I can handle that yet after what happened.
+When I received them, I left them all around my room. I should put myself to read the letters.
+
+
+Entry 2:
+I've finally read the letters.
+Still no idea who put them under my door...
+Maybe I should get some rest. My head is spinning from all of this.
+
+
+DREAMSTATE: Colors desaturated, fuzzy edges. Soft haunting music playing.
+
+Entry 1:
+I woke up in the city, how did I get here?
+The letters I was holding are gone. I just feel the need to get them back.
+I have a feeling where they might be. My map might help me.
+
+
+Apparment: Colors return.
+
+Entry 3:
+I had a strange dream last night.
+Yesterday I've got three letters, they came back in the dream, and I had to collect them.
+After I had found them I woke up in my bed again. I can't remember even going to bed.
+
+
+SCENE: Knock on door
+Players screen goes crazy, heartbeat sounds
+
+
+
+Letter 1:
+Dear Isa,
+
+I hope you will read this letter, I never really know if you do.
+We hope you are doing well, we never see you. Will you ever come outside again?
+Your phone has been off for weeks, and you never answer the door.
+We never see a letter from you, but we know you take the food left in front of your door.
+Please let us know something, we miss you.
+
+With kind regards
+-[name]
+
+
+Letter 2:
+
