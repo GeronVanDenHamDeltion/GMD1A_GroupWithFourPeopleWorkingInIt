@@ -141,14 +141,14 @@ public class CarEngine : MonoBehaviour
                     if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
                     {
                         avoiding = true;
-                        avoidMultiplier -= 1f;
+                        avoidMultiplier = -1f;
                     }
                 }
                 else
                 {
                     Debug.DrawLine(sensorStarPos, hit.point);
                     avoiding = true;
-                    avoidMultiplier -= 1f;
+                    avoidMultiplier = -1f;
                 }
                 
             }
@@ -165,14 +165,14 @@ public class CarEngine : MonoBehaviour
                     if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
                     {
                         avoiding = true;
-                        avoidMultiplier -= 0.5f;
+                        avoidMultiplier = -0.5f;
                     }
                 }
                 else
                 {
                     Debug.DrawLine(sensorStarPos, hit.point);
                     avoiding = true;
-                    avoidMultiplier -= 0.5f;
+                    avoidMultiplier = -0.5f;
                 }
             }
         }
@@ -189,14 +189,14 @@ public class CarEngine : MonoBehaviour
                     if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
                     {
                         avoiding = true;
-                        avoidMultiplier += 1f;
+                        avoidMultiplier = 1f;
                     }
                 }
                 else
                 {
                     Debug.DrawLine(sensorStarPos, hit.point);
                     avoiding = true;
-                    avoidMultiplier += 1f;
+                    avoidMultiplier = 1f;
                 }
             }
         }
@@ -212,14 +212,14 @@ public class CarEngine : MonoBehaviour
                     if (Vector3.Distance(hit.point, sensorStarPos) > sideWalkPos)
                     {
                         avoiding = true;
-                        avoidMultiplier += 0.5f;
+                        avoidMultiplier = 0.5f;
                     }
                 }
                 else
                 {
                     Debug.DrawLine(sensorStarPos, hit.point);
                     avoiding = true;
-                    avoidMultiplier += 0.5f;
+                    avoidMultiplier = 0.5f;
                 }
             }
         }
