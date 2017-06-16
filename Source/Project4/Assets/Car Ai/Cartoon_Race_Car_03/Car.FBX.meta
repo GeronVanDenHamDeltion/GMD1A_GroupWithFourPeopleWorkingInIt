@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: afe90f75de38d164eb6e7a85f774d071
-timeCreated: 1497603195
+guid: dcde8f1cba5dc154193b5b6a388f9674
+timeCreated: 1497605974
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cylinder002
+    100002: Car
     100004: tireBackL
     100006: tireBackR
     100008: tireFrontL
     100010: tireFrontR
     400000: //RootNode
-    400002: Cylinder002
+    400002: Car
     400004: tireBackL
     400006: tireBackR
     400008: tireFrontL
     400010: tireFrontR
-    2300000: Cylinder002
+    2300000: Car
     2300002: tireBackL
     2300004: tireBackR
     2300006: tireFrontL
     2300008: tireFrontR
-    3300000: Cylinder002
+    3300000: Car
     3300002: tireBackL
     3300004: tireBackR
     3300006: tireFrontL
@@ -31,7 +31,7 @@ ModelImporter:
     4300002: tireBackL
     4300004: tireFrontR
     4300006: tireBackR
-    4300008: Cylinder002
+    4300008: Car
     7400000: Take 001
     9500000: //RootNode
   materials:
