@@ -23,6 +23,10 @@ public class BookManager : MonoBehaviour
     public Button backwardButton;
     public GameObject inventory;
 
+    public void Start()
+    {
+        inventory.SetActive(false);
+    }
     public void UpdateBook()
     {
         if (currentPageNumer == pages.first)
