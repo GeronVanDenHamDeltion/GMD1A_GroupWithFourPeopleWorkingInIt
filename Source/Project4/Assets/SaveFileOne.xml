@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
+<<<<<<< HEAD
     <x>166.501709</x>
     <y>0.9000007</y>
     <z>-24.2487068</z>
@@ -8,6 +9,15 @@
   <playerRotation>
     <x>15.0625191</x>
     <y>148.999985</y>
+=======
+    <x>140.799576</x>
+    <y>1.4512012</y>
+    <z>-27.585001</z>
+  </playerlocation>
+  <playerRotation>
+    <x>15.499999</x>
+    <y>262.000061</y>
+>>>>>>> 516082ee8b4e42273914b4c9d73022ce155d99fd
     <z>0</z>
   </playerRotation>
   <pageAbleToSee>
