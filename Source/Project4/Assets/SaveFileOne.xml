@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
-    <x>145.061508</x>
-    <y>1.11852455</y>
-    <z>-28.7828712</z>
+    <x>166.501709</x>
+    <y>0.9000007</y>
+    <z>-24.2487068</z>
   </playerlocation>
   <playerRotation>
-    <x>359.5</x>
-    <y>267</y>
+    <x>15.0625191</x>
+    <y>148.999985</y>
     <z>0</z>
   </playerRotation>
   <pageAbleToSee>
