@@ -7,9 +7,12 @@ public class PaperScript : MonoBehaviour {
 
     public bool selected;
     public Text text;
+    public string paperText;
+    public Menu menuScript;
 
     public void OnMouseOver()
     {
+        menuScript.SetUIText(paperText);
         selected = true;
         
         if(Input.GetButtonDown("Fire1"))
@@ -32,7 +35,7 @@ public class PaperScript : MonoBehaviour {
         else
         {
             gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, new Vector3(1, 1, 1), 10 * Time.deltaTime);
-            text.text = ("");
+            //text.text = ("");
         }
     }
 

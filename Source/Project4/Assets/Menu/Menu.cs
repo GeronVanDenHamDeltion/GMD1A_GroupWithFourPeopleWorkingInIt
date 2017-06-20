@@ -13,7 +13,6 @@ public class Menu : MonoBehaviour {
     public GameObject menuLetter2;
     public GameObject menuLetter3;
     public float alpha;
-
     public float fov;
 
 
@@ -28,7 +27,7 @@ public class Menu : MonoBehaviour {
     {
         if (fov >= 50 )
         {
-            fov = fov*0.995f;
+            fov = fov*0.990f;
             title.GetComponent<CanvasRenderer>().SetAlpha(alpha);
             menuText.GetComponent<CanvasRenderer>().SetAlpha(alpha);
         }
@@ -40,35 +39,11 @@ public class Menu : MonoBehaviour {
         }
         menuCamera.fieldOfView = fov;
     }
-
-    void Update()
+    public void SetUIText(string textToSet)
     {
-        if (menuLetter1.GetComponent<PaperScript>().selected == true)
-        {
-            text.text = ("Start Game");
-            if (Input.GetButtonDown("Fire1"))
-            {
-
-            }
-        }
-
-        if (menuLetter2.GetComponent<PaperScript>().selected == true)
-        {
-            text.text = ("Options");
-            if (Input.GetButtonDown("Fire1"))
-            {
-
-            }
-        }
-
-        if (menuLetter3.GetComponent<PaperScript>().selected == true)
-        {
-            text.text = ("Exit Game");
-            if (Input.GetButtonDown("Fire1"))
-            {
-
-            }
-        }
-
+        text.text = textToSet;
+        
     }
+
+
 }
