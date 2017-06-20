@@ -24,6 +24,7 @@ public class PaperScript : MonoBehaviour {
     public void OnMouseExit()
     {
         selected = false;
+        text.text = ("");
     }
 
     void Update()
@@ -35,7 +36,7 @@ public class PaperScript : MonoBehaviour {
         else
         {
             gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, new Vector3(1, 1, 1), 10 * Time.deltaTime);
-            //text.text = ("");
+            
         }
     }
 
