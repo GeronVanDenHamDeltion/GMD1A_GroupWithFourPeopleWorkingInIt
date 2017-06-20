@@ -1,0 +1,23 @@
+- world:					later eventueel doen:
+Cars
+NPC's
+# npc is close effects
+Letters
+small world props
+						lighting fog and 
+# letters on pickup in script
+# Letters toggle npc following
+# back to room after 3 letters
+
+- menu:
+#options
+#load
+
+- room:
+Letters
+# letters on pickup script
+# sleeping after 3 letters
+
+
+363C62FF lighting
+1E1F69FF directional
