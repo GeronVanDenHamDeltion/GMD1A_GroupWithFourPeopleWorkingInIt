@@ -24,9 +24,18 @@ public class NPCScript : MonoBehaviour
     public Rigidbody rb;
     public Animator anim;
     public AnimationState animationState;
+    public GameObject destinations;
 
     void Start()
     {
+        Transform[] pathTransform = destinations.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < pathTransform.Length; i++)
+        {
+            if (pathTransform[i] != destinations.transform)
+            {
+                objectives.Add(pathTransform[i].gameObject);
+            }
+        }
         target = objectives[Random.Range(0, objectives.Count)];
         rb = this.gameObject.GetComponent<Rigidbody>();
         anim = this.gameObject.GetComponent<Animator>();
