@@ -10,11 +10,10 @@ public class NPCScript : MonoBehaviour
     public bool follow = false;
     public float timer;
     public GameObject player;
-
+    //public Material shirt;
+    //public Material pants;
 
     public List<GameObject> objectives = new List<GameObject>();
-
-    
 
     public enum AnimationState
     {
@@ -33,8 +32,9 @@ public class NPCScript : MonoBehaviour
         anim = this.gameObject.GetComponent<Animator>();
 
         agent = GetComponent<NavMeshAgent>();
-        
 
+        //shirt.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+        //pants.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
 
     }
 
