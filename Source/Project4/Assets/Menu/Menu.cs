@@ -9,9 +9,6 @@ public class Menu : MonoBehaviour {
     public GameObject title;
     public GameObject menuText;
     public Camera menuCamera;
-    public GameObject menuLetter1;
-    public GameObject menuLetter2;
-    public GameObject menuLetter3;
     public float alpha;
     public float fov;
 

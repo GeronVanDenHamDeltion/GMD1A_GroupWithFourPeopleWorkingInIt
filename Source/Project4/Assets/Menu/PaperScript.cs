@@ -9,6 +9,7 @@ public class PaperScript : MonoBehaviour {
     public Text text;
     public string paperText;
     public Menu menuScript;
+    public bool clicked;
 
     public void OnMouseOver()
     {
@@ -17,6 +18,7 @@ public class PaperScript : MonoBehaviour {
         
         if(Input.GetButtonDown("Fire1"))
         {
+            clicked = true;
             gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, new Vector3(3, 3, 3), 22 * Time.deltaTime);
         }
     }

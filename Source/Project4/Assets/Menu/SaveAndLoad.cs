@@ -46,21 +46,6 @@ public class SaveAndLoad : MonoBehaviour
         print("loading");
         dataHolder = Load();
         player.transform.position = dataHolder.playerlocation;
-            //CamMouseLook[] camArray = player.GetComponentsInChildren<CamMouseLook>();
-            //foreach(CamMouseLook cml in camArray)
-            //{
-            //    cml.enabled = false;
-            //}
-            //Camera[] cam = player.GetComponentsInChildren<Camera>();
-            //foreach(Camera camera in cam)
-            //{
-            //    camera.transform.rotation = Quaternion.Euler(dataHolder.playerRotation);
-            //}
-            //player.GetComponentInChildren<Camera>().transform.rotation = Quaternion.Euler(dataHolder.playerRotation);
-            //foreach (CamMouseLook cml in camArray)
-            //{
-            //    cml.enabled = true;
-            //}
         for (int i = 0; i < dataHolder.pageAbleToSee.Count; i++)
         {
             bookManager.pageAbleToSee[i] = dataHolder.pageAbleToSee[i];
