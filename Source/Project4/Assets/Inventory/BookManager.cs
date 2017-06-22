@@ -34,13 +34,14 @@ public class BookManager : MonoBehaviour
             //quests
             bookOne.sprite = pageSprites[0];
             bookTwo.sprite = pageSprites[1];
-            backwardButton.enabled = false;
+            backwardButton.gameObject.SetActive(false);
         }
         if (currentPageNumer == pages.second)
         {
             //map
             bookOne.sprite = pageSprites[2];
             bookTwo.sprite = pageSprites[3];
+            backwardButton.gameObject.SetActive(true);
         }
         if (currentPageNumer == pages.third)
         {
@@ -81,6 +82,7 @@ public class BookManager : MonoBehaviour
             {
                 bookOne.sprite = rippedOutPage;
             }
+            forwardButton.gameObject.SetActive(true);
         }
         if (currentPageNumer == pages.fifth)
         {
@@ -101,7 +103,7 @@ public class BookManager : MonoBehaviour
             {
                 bookOne.sprite = rippedOutPage;
             }
-            forwardButton.enabled = false;
+            forwardButton.gameObject.SetActive(false);
         }
     }
     public void PickedUpObject(int i)
