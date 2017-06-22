@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int currentScene;
     public int sceneNumber;
-    public GameObject player;
-    //public SaveAndLoad saveAndLoad;
+    public SaveAndLoad saveAndLoad;
 
     public void Update()
     {
@@ -32,10 +31,17 @@ public class GameManager : MonoBehaviour
         if (sceneNumber == 1)
         {
             SceneManager.LoadScene("Room");
+            //SceneManager.sceneLoaded += LevelLoaded;
         }
         if (sceneNumber == 2)
         {
             SceneManager.LoadScene("World");
+            //SceneManager.sceneLoaded += LevelLoaded;
         }
+    }
+
+    void LevelLoaded(Scene scene, LoadSceneMode mode)
+    {
+        saveAndLoad.FindObjects();
     }
 }

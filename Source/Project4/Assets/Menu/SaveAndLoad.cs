@@ -11,16 +11,10 @@ public class SaveAndLoad : MonoBehaviour
     public BookManager bookManager;
     public GameManager gameManager;
 
-    public void Awake()
+    public void FindObjects()
     {
-        if (GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-        if (GameObject.FindGameObjectWithTag("BookManager") != null)
-        {
-            bookManager = GameObject.FindGameObjectWithTag("BookManager").GetComponent<BookManager>();
-        }
+        player = GameObject.FindGameObjectWithTag("Player");
+        bookManager = GameObject.FindGameObjectWithTag("Player").GetComponent<BookManager>();
     }
     public void Save()
     {
