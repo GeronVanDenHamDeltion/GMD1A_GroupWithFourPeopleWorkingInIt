@@ -36,11 +36,6 @@ public class Menu : MonoBehaviour {
         }
         menuCamera.fieldOfView = fov;
     }
-    public void SetUIText(string textToSet)
-    {
-        text.text = textToSet;
-        
-    }
 
 
 }

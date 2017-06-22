@@ -13,7 +13,7 @@ public class PaperScript : MonoBehaviour {
 
     public void OnMouseOver()
     {
-        menuScript.SetUIText(paperText);
+        text.text = paperText;
         selected = true;
         
         if(Input.GetButtonDown("Fire1"))

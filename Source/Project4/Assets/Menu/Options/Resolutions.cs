@@ -14,11 +14,13 @@ public class Resolutions : MonoBehaviour
     public bool fullscreen;
     public Slider resolutionSlider;
     public Slider TextureSlider;
+    public Slider Volume;
     public Toggle toggle;
     public Text resolutionText;
     public Text textureText;
     public ResSave SaveFile;
     public ResSave FirstStart;
+    public GameObject Sound;
     void Start ()
     {
         if (File.Exists(Application.dataPath + "/UserSettings.xml"))
@@ -28,6 +30,7 @@ public class Resolutions : MonoBehaviour
         {
             SaveFile = FirstStart;
         }
+        Volume.value = SaveFile.volume;
         resolutionSlider.value = SaveFile.Resolution;
         TextureSlider.value = SaveFile.TextureQual;
         toggle.isOn = SaveFile.Fullscreen;
@@ -42,6 +45,7 @@ public class Resolutions : MonoBehaviour
         Save();
         Screen.SetResolution(firstResValue[Convert.ToInt32(resolutionSlider.value)], secondResValue[Convert.ToInt32(resolutionSlider.value)], toggle.isOn);
         QualitySettings.SetQualityLevel(Convert.ToInt32(TextureSlider.value));
+        Sound.GetComponent<Sounds>().changeVolumes();
     }
 
     public void ChangeResText()
@@ -57,6 +61,7 @@ public class Resolutions : MonoBehaviour
         SaveFile.Resolution = resolutionSlider.value;
         SaveFile.TextureQual = TextureSlider.value;
         SaveFile.Fullscreen = toggle.isOn;
+        SaveFile.volume = Volume.value;
         print("savingRes");
         var serializer = new XmlSerializer(typeof(ResSave));
         using (var stream = new FileStream(Application.dataPath + "/UserSettings.xml", FileMode.Create))
@@ -79,5 +84,6 @@ public class Resolutions : MonoBehaviour
         resolutionSlider.value = SaveFile.Resolution;
         TextureSlider.value = SaveFile.TextureQual;
         toggle.isOn = SaveFile.Fullscreen;
+        Volume.value = SaveFile.volume;
     }
 }
