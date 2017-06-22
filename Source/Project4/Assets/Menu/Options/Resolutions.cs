@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,32 +10,74 @@ public class Resolutions : MonoBehaviour
 {
     public List<int> firstResValue = new List<int>();
     public List<int> secondResValue = new List<int>();
+    public List<string> textureQualNames = new List<string>();
     public bool fullscreen;
     public Slider resolutionSlider;
+    public Slider TextureSlider;
     public Toggle toggle;
     public Text resolutionText;
-	void Start ()
+    public Text textureText;
+    public ResSave SaveFile;
+    public ResSave FirstStart;
+    void Start ()
     {
-        resolutionText.text = (firstResValue[Convert.ToInt32(resolutionSlider.value)].ToString() + "x" + secondResValue[Convert.ToInt32(resolutionSlider.value)].ToString());
-        fullscreen = toggle.isOn;
+        if (File.Exists(Application.dataPath + "/UserSettings.xml"))
+        {
+            loading();
+        }else
+        {
+            SaveFile = FirstStart;
+        }
+        resolutionSlider.value = SaveFile.Resolution;
+        TextureSlider.value = SaveFile.TextureQual;
+        toggle.isOn = SaveFile.Fullscreen;
+        Screen.SetResolution(firstResValue[Convert.ToInt32(SaveFile.Resolution)], secondResValue[Convert.ToInt32(SaveFile.Resolution)], SaveFile.Fullscreen);
+        QualitySettings.SetQualityLevel(Convert.ToInt32(SaveFile.TextureQual));
+        resolutionText.text = (firstResValue[Convert.ToInt32(SaveFile.Resolution)].ToString() + "x" + secondResValue[Convert.ToInt32(SaveFile.Resolution)].ToString());
+        textureText.text = textureQualNames[Convert.ToInt32(SaveFile.TextureQual)];
     }
 	
-	void Update ()
+    public void ChangeValues()
     {
-		
-	}
-    public void BoolChanged(bool b)
-    {
-        fullscreen = toggle.isOn;
-        ChangeRes(Convert.ToInt32(resolutionSlider.value));
+        Save();
+        Screen.SetResolution(firstResValue[Convert.ToInt32(resolutionSlider.value)], secondResValue[Convert.ToInt32(resolutionSlider.value)], toggle.isOn);
+        QualitySettings.SetQualityLevel(Convert.ToInt32(TextureSlider.value));
     }
-    public void ValueChanged()
+
+    public void ChangeResText()
     {
-        ChangeRes(Convert.ToInt32(resolutionSlider.value));
+        resolutionText.text = (firstResValue[Convert.ToInt32(resolutionSlider.value)].ToString() + "x" + secondResValue[Convert.ToInt32(resolutionSlider.value)].ToString());
     }
-    public void ChangeRes(int i)
+    public void ChangeTexText()
     {
-        resolutionText.text = (firstResValue[i].ToString() + "x" + secondResValue[i].ToString());
-        Screen.SetResolution(firstResValue[i], secondResValue[i], fullscreen);
+        textureText.text = textureQualNames[Convert.ToInt32(TextureSlider.value)];
+    }
+    public void Save()
+    {
+        SaveFile.Resolution = resolutionSlider.value;
+        SaveFile.TextureQual = TextureSlider.value;
+        SaveFile.Fullscreen = toggle.isOn;
+        print("savingRes");
+        var serializer = new XmlSerializer(typeof(ResSave));
+        using (var stream = new FileStream(Application.dataPath + "/UserSettings.xml", FileMode.Create))
+        {
+            serializer.Serialize(stream, SaveFile);
+        }
+    }
+    public ResSave Load()
+    {
+        var serializer = new XmlSerializer(typeof(ResSave));
+        using (var stream = new FileStream(Application.dataPath + "/UserSettings.xml", FileMode.Open))
+        {
+            return serializer.Deserialize(stream) as ResSave;
+        }
+    }
+    public void loading()
+    {
+        print("loading");
+        SaveFile = Load();
+        resolutionSlider.value = SaveFile.Resolution;
+        TextureSlider.value = SaveFile.TextureQual;
+        toggle.isOn = SaveFile.Fullscreen;
     }
 }
