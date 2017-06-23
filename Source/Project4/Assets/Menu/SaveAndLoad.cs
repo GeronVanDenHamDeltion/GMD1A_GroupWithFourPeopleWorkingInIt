@@ -11,19 +11,29 @@ public class SaveAndLoad : MonoBehaviour
     public BookManager bookManager;
     public GameManager gameManager;
 
+    public void FindObjects()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        bookManager = GameObject.FindGameObjectWithTag("Player").GetComponent<BookManager>();
+    }
     public void Save()
     {
         print("saving");
         dataHolder = new DataHolder();
-        dataHolder.playerlocation = player.transform.position;
-        dataHolder.playerRotation = player.GetComponentInChildren<Camera>().transform.rotation.eulerAngles;
+        if (player != null)
+        {
+            dataHolder.playerlocation = player.transform.position;
+        }
         for (int i = 0; i < 6; i++)
         {
             dataHolder.pageAbleToSee.Add(false);
         }
-        for (int i = 0;  i < dataHolder.pageAbleToSee.Count; i++)
+        if (bookManager != null)
         {
-            dataHolder.pageAbleToSee[i] = bookManager.pageAbleToSee[i];
+            for (int i = 0; i < dataHolder.pageAbleToSee.Count; i++)
+            {
+                dataHolder.pageAbleToSee[i] = bookManager.pageAbleToSee[i];
+            }
         }
         dataHolder.currentScene = gameManager.currentScene;
         var serializer = new XmlSerializer(typeof(DataHolder));
@@ -45,10 +55,16 @@ public class SaveAndLoad : MonoBehaviour
     {
         print("loading");
         dataHolder = Load();
-        player.transform.position = dataHolder.playerlocation;
-        for (int i = 0; i < dataHolder.pageAbleToSee.Count; i++)
+        if (player != null)
         {
-            bookManager.pageAbleToSee[i] = dataHolder.pageAbleToSee[i];
+            player.transform.position = dataHolder.playerlocation;
+        }
+        if (bookManager != null)
+        {
+            for (int i = 0; i < dataHolder.pageAbleToSee.Count; i++)
+            {
+                bookManager.pageAbleToSee[i] = dataHolder.pageAbleToSee[i];
+            }
         }
         gameManager.currentScene = dataHolder.currentScene;
         if (gameManager.currentScene != gameManager.sceneNumber)

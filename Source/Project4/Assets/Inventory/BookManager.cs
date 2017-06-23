@@ -14,6 +14,7 @@ public class BookManager : MonoBehaviour
         fifth
     }
     public pages currentPageNumer;
+    public List<Sprite> entryPages = new List<Sprite>();
     public List<Sprite> pageSprites = new List<Sprite>();
     public List<bool> pageAbleToSee = new List<bool>();
     public Sprite rippedOutPage;
@@ -22,7 +23,14 @@ public class BookManager : MonoBehaviour
     public Button forwardButton;
     public Button backwardButton;
     public GameObject inventory;
+    public GameManager gamemanager;
+    public bool wait;
+    public bool waittwo;
 
+    public void Awake()
+    {
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
     public void Start()
     {
         inventory.SetActive(false);
@@ -32,15 +40,37 @@ public class BookManager : MonoBehaviour
         if (currentPageNumer == pages.first)
         {
             //quests
-            bookOne.sprite = pageSprites[0];
-            bookTwo.sprite = pageSprites[1];
-            backwardButton.enabled = false;
+            if (gamemanager.progress == 1)
+            {
+                bookOne.sprite = entryPages[0];
+                bookTwo.sprite = rippedOutPage;
+            }
+            if (gamemanager.progress == 2)
+            {
+                bookOne.sprite = entryPages[1];
+                bookTwo.sprite = rippedOutPage;
+            }
+            if (gamemanager.progress == 3)
+            {
+                bookOne.sprite = entryPages[2];
+                bookTwo.sprite = entryPages[3];
+            }
+            if (gamemanager.progress == 4)
+            {
+                bookOne.sprite = entryPages[2];
+                bookTwo.sprite = entryPages[4];
+            }
+            backwardButton.gameObject.SetActive(false);
+            forwardButton.gameObject.SetActive(true);
         }
         if (currentPageNumer == pages.second)
         {
             //map
             bookOne.sprite = pageSprites[2];
             bookTwo.sprite = pageSprites[3];
+            backwardButton.gameObject.SetActive(true);
+            forwardButton.gameObject.SetActive(true);
+
         }
         if (currentPageNumer == pages.third)
         {
@@ -55,12 +85,14 @@ public class BookManager : MonoBehaviour
             }
             if (pageAbleToSee[1] == true)
             {
-                bookOne.sprite = pageSprites[5];
+                bookTwo.sprite = pageSprites[5];
             }
             else
             {
-                bookOne.sprite = rippedOutPage;
+                bookTwo.sprite = rippedOutPage;
             }
+            backwardButton.gameObject.SetActive(true);
+            forwardButton.gameObject.SetActive(true);
         }
         if (currentPageNumer == pages.fourth)
         {
@@ -75,12 +107,14 @@ public class BookManager : MonoBehaviour
             }
             if (pageAbleToSee[3] == true)
             {
-                bookOne.sprite = pageSprites[7];
+                bookTwo.sprite = pageSprites[7];
             }
             else
             {
-                bookOne.sprite = rippedOutPage;
+                bookTwo.sprite = rippedOutPage;
             }
+            backwardButton.gameObject.SetActive(true);
+            forwardButton.gameObject.SetActive(true);
         }
         if (currentPageNumer == pages.fifth)
         {
@@ -95,13 +129,14 @@ public class BookManager : MonoBehaviour
             }
             if (pageAbleToSee[5] == true)
             {
-                bookOne.sprite = pageSprites[9];
+                bookTwo.sprite = pageSprites[9];
             }
             else
             {
-                bookOne.sprite = rippedOutPage;
+                bookTwo.sprite = rippedOutPage;
             }
-            forwardButton.enabled = false;
+            backwardButton.gameObject.SetActive(true);
+            forwardButton.gameObject.SetActive(false);
         }
     }
     public void PickedUpObject(int i)
@@ -116,7 +151,14 @@ public class BookManager : MonoBehaviour
         } 
         else if (currentPageNumer == pages.first && forward == true)
         {
-            currentPageNumer = pages.second;
+            if (gamemanager.progress > 2)
+            {
+                currentPageNumer = pages.second;
+            }
+            if (gamemanager.progress <= 2)
+            {
+                currentPageNumer = pages.third;
+            }
         }
         else if (currentPageNumer == pages.second && forward == false)
         {
@@ -128,7 +170,14 @@ public class BookManager : MonoBehaviour
         }
         else if (currentPageNumer == pages.third && forward == false)
         {
-            currentPageNumer = pages.second;
+            if (gamemanager.progress > 2)
+            {
+                currentPageNumer = pages.second;
+            }
+            if (gamemanager.progress <= 2)
+            {
+                currentPageNumer = pages.first;
+            }
         }
         else if (currentPageNumer == pages.third && forward == true)
         {
@@ -161,10 +210,17 @@ public class BookManager : MonoBehaviour
             inventory.SetActive(true);
             currentPageNumer = pages.first;
             UpdateBook();
+            gamemanager.menu = true;
         }
         else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel") )&& inventory.activeInHierarchy == true)
         {
             inventory.SetActive(false);
+            gamemanager.menu = false;
+        }
+        if (pageAbleToSee[0] && pageAbleToSee[1] && pageAbleToSee[2] && wait == false)
+        {
+            wait = true;
+            gamemanager.progress++;
         }
     }
 }

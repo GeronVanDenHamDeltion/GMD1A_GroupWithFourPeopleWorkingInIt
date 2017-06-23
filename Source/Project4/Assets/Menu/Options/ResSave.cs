@@ -7,4 +7,5 @@ public class ResSave
     public float Resolution;
     public bool Fullscreen;
     public float TextureQual;
+    public float volume;
 }
