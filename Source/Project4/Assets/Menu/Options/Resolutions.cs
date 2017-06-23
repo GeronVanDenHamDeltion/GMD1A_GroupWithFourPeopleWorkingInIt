@@ -26,7 +26,8 @@ public class Resolutions : MonoBehaviour
         if (File.Exists(Application.dataPath + "/UserSettings.xml"))
         {
             loading();
-        }else
+        }
+        else
         {
             SaveFile = FirstStart;
         }
