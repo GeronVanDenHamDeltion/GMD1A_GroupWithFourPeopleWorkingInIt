@@ -15,9 +15,11 @@ public class BedTrigger : MonoBehaviour
     {
         if (gamemanager.progress == 2 && ispressent)
         {
-            if (Input.GetButtonDown(""))
-            gamemanager.sceneNumber = 2;
-            gamemanager.ChangeScene();
+            if (Input.GetButtonDown("Interact"))
+            {
+                gamemanager.sceneNumber = 2;
+                gamemanager.ChangeScene();
+            }
         }
     }
     public void OnTriggerEnter(Collider col)

@@ -17,14 +17,6 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetButtonDown("Submit"))
-        {
-            //saveAndLoad.Save();
-        }
-        if (Input.GetButtonDown("TempLoad"))
-        {
-            //saveAndLoad.loading();
-        }
         if (progress > 0 && menu == false)
         {
             Cursor.lockState = CursorLockMode.Locked;
