@@ -13,6 +13,7 @@ public class HandScript : MonoBehaviour
     public GameObject upperArm;
     public GameObject lowerArm;
     public GameObject bodyHand;
+    public BookManager bookManager;
 
 
 
@@ -70,7 +71,7 @@ public class HandScript : MonoBehaviour
             if (timer >= 0.4f)
             {
                 timer = 0;
-                item.GetComponent<ItemInformation>().AddToInv();
+                bookManager.pageAbleToSee[item.GetComponent<Note>().noteNumber] = true;
                 Destroy(item);
                 item = null;
                 itemGrabbed = false;

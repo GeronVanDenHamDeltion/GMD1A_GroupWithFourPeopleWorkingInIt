@@ -21,5 +21,6 @@ public class NewGame : MonoBehaviour
         yield return new WaitForSeconds(2);
         gameManager.sceneNumber = 1;
         gameManager.ChangeScene();
+        gameManager.progress++;
     }
 }

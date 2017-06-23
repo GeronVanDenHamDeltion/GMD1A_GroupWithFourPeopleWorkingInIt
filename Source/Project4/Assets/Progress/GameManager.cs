@@ -8,16 +8,22 @@ public class GameManager : MonoBehaviour
     public int currentScene;
     public int sceneNumber;
     public SaveAndLoad saveAndLoad;
+    public int progress;
+    public bool menu;
+    //1. 1st entry
+    //2. 2th entry
+    //3. 3th entry
+    //4. 4th entry
 
     public void Update()
     {
-        if (Input.GetButtonDown("Submit"))
+        if (progress > 0 && menu == false)
         {
-            //saveAndLoad.Save();
-        }
-        if (Input.GetButtonDown("TempLoad"))
+            Cursor.lockState = CursorLockMode.Locked;
+        }else
         {
-            //saveAndLoad.loading();
+            Cursor.lockState = CursorLockMode.None;
+
         }
     }
     public void ChangeScene()
@@ -42,6 +48,5 @@ public class GameManager : MonoBehaviour
 
     void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        saveAndLoad.FindObjects();
     }
 }
