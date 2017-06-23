@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -10,11 +11,16 @@ public class GameManager : MonoBehaviour
     public SaveAndLoad saveAndLoad;
     public int progress;
     public bool menu;
+    public Image loadingscreen;
     //1. 1st entry
     //2. 2th entry
     //3. 3th entry
     //4. 4th entry
 
+    public void Awake()
+    {
+        loadingscreen.enabled = false;
+    }
     public void Update()
     {
         if (progress > 0 && menu == false)
@@ -26,9 +32,12 @@ public class GameManager : MonoBehaviour
 
         }
     }
-    public void ChangeScene()
+    public IEnumerator ChangeScene()
     {
+
         print("Change");
+        loadingscreen.enabled = true;
+        yield return new WaitForEndOfFrame();
         DontDestroyOnLoad(transform.gameObject);
         if (sceneNumber == 0)
         {

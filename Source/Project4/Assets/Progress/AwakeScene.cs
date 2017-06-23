@@ -9,5 +9,6 @@ public class AwakeScene : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         gameManager.GetComponent<SaveAndLoad>().FindObjects();
+        gameManager.GetComponent<GameManager>().loadingscreen.enabled = false;
     }
 }
