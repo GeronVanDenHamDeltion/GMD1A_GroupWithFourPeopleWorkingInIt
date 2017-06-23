@@ -13,6 +13,7 @@ public class HandScript : MonoBehaviour
     public GameObject upperArm;
     public GameObject lowerArm;
     public GameObject bodyHand;
+    public CameraEffects camEffects;
     public BookManager bookManager;
 
 
@@ -38,6 +39,7 @@ public class HandScript : MonoBehaviour
         anim = hand.GetComponent<Animator>();
         pointerLocation = GameObject.Find("PointerLocation");
         defaultLocation = GameObject.Find("DefaultLocation");
+        camEffects = GameObject.Find("Main Camera").GetComponent<CameraEffects>();
     }
 
 
@@ -63,6 +65,7 @@ public class HandScript : MonoBehaviour
 
         if (itemGrabbed)
         {
+            camEffects.grain = 5;
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);
             item.transform.rotation = palm.transform.rotation;
             timer += Time.deltaTime;
@@ -70,6 +73,7 @@ public class HandScript : MonoBehaviour
 
             if (timer >= 0.4f)
             {
+                camEffects.grain = 0;
                 timer = 0;
                 bookManager.pageAbleToSee[item.GetComponent<Note>().noteNumber] = true;
                 Destroy(item);
@@ -77,6 +81,7 @@ public class HandScript : MonoBehaviour
                 itemGrabbed = false;
             }
         }
+       
     }
 
     public void CheckForObject()
