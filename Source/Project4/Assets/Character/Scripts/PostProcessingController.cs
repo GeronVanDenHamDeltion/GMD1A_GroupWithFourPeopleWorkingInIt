@@ -46,8 +46,8 @@ namespace UnityEngine.PostProcessing.Utilities
         public bool enableUserLut;
         public UserLutModel.Settings userLut;
 
-        public bool controlChromaticAberration;
-        public bool enableChromaticAberration;
+        public bool controlChromaticAberration = true;
+        public bool enableChromaticAberration = true;
         public ChromaticAberrationModel.Settings chromaticAberration;
 
         public bool controlGrain;

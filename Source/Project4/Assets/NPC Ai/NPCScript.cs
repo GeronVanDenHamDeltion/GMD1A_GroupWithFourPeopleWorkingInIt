@@ -10,8 +10,10 @@ public class NPCScript : MonoBehaviour
     public bool follow = false;
     public float timer;
     public GameObject player;
+    //public CameraEffects camEffects;
     //public Material shirt;
     //public Material pants;
+    //public float myDistanceToPlayer;
 
     public List<GameObject> objectives = new List<GameObject>();
 
@@ -28,6 +30,7 @@ public class NPCScript : MonoBehaviour
 
     void Start()
     {
+        //camEffects = player.transform.GetChild(0).gameObject.GetComponent<CameraEffects>();
         Transform[] pathTransform = destinations.GetComponentsInChildren<Transform>();
         for (int i = 0; i < pathTransform.Length; i++)
         {
@@ -49,6 +52,12 @@ public class NPCScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        //myDistanceToPlayer = Vector3.Distance(player.transform.position, this.gameObject.transform.position);
+        //if (myDistanceToPlayer <= 5)
+        //{
+        //    camEffects.closeEnemy = this.gameObject;
+        //}
+
         if ( animationState == AnimationState.Idle )
         {
             anim.SetBool("bNPCidle", true);
