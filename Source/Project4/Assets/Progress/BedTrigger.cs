@@ -17,6 +17,7 @@ public class BedTrigger : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact"))
             {
+                gamemanager.progress++;
                 gamemanager.sceneNumber = 2;
                 StartCoroutine(gamemanager.ChangeScene());
             }
