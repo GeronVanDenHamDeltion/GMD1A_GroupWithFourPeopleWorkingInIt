@@ -13,10 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerBodyScript playerBodyScript;
 
-
-
-
-
     void FixedUpdate()
     {
 
@@ -62,15 +58,30 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(horizontal, 0, vertical);
 
-        if (Input.GetButton("Fire3") && playerBodyScript.animationState != PlayerBodyScript.AnimationState.Idle)
+
+        if(Input.GetButton("Fire3"))
         {
             speed = runningSpeed;
-            playerBodyScript.animationState = PlayerBodyScript.AnimationState.Run;
+            if (vertical > 0)
+            {
+                playerBodyScript.animationState = PlayerBodyScript.AnimationState.Run;
+            }
+        }
+        else if ( horizontal == 0 && vertical == 0)
+        {
+            playerBodyScript.animationState = PlayerBodyScript.AnimationState.Idle;
         }
         else
         {
             speed = walkingSpeed;
+            playerBodyScript.animationState = PlayerBodyScript.AnimationState.Walk;
         }
+
+        if(vertical == 0)
+        {
+            playerBodyScript.animationState = PlayerBodyScript.AnimationState.Idle;
+        }
+
     }
 
     public void Jump()
