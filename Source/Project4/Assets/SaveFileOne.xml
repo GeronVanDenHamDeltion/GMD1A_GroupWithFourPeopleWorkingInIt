@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
-    <x>152.607483</x>
-    <y>0.800368249</y>
-    <z>-14.1862593</z>
+    <x>182.505737</x>
+    <y>0.800000668</y>
+    <z>-43.4073219</z>
   </playerlocation>
   <pageAbleToSee>
     <boolean>false</boolean>
-    <boolean>true</boolean>
-    <boolean>true</boolean>
+    <boolean>false</boolean>
+    <boolean>false</boolean>
     <boolean>false</boolean>
     <boolean>false</boolean>
     <boolean>false</boolean>
