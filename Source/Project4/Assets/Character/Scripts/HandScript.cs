@@ -17,6 +17,8 @@ public class HandScript : MonoBehaviour
     public BookManager bookManager;
     public AudioSource papersound;
 
+    
+
 
 
 
@@ -31,6 +33,11 @@ public class HandScript : MonoBehaviour
 
     public float timer;
     public float sensorLength;
+
+    void Awake()
+    {
+        NPCScript.follow = false;
+    }
 
     void Start()
     {
@@ -66,6 +73,7 @@ public class HandScript : MonoBehaviour
 
         if (itemGrabbed)
         {
+            NPCScript.follow = true;
             papersound.Play();
             camEffects.grain = 5;
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);

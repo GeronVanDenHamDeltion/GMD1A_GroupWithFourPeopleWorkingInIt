@@ -19,7 +19,9 @@ public class CameraEffects : MonoBehaviour  {
     public AudioSource staticNoise;
     public AudioSource heartBeat;
     public float damage = 0;
-    
+    public GameObject spawn;
+
+    public GameObject player;
     public bool wakenUp;
     
 
@@ -34,7 +36,8 @@ public class CameraEffects : MonoBehaviour  {
     void Start()
     {
         post = GetComponent<PostProcessingController>();
-        
+        spawn = GameObject.Find("Spawn");
+        player = GameObject.Find("Player");
     }
 
     void FixedUpdate()
@@ -54,6 +57,15 @@ public class CameraEffects : MonoBehaviour  {
         if (closeEnemy != null)
         {
             closestThread = Vector3.Distance(closeEnemy.transform.position, this.gameObject.transform.position);
+
+            if (damage >= 200)
+            {
+                damage = 500;
+                player.transform.position = spawn.transform.position;
+                vignette = 3;
+                wakenUp = false;
+                
+            }
 
             if (closestThread <= anxietyRadius)
             {

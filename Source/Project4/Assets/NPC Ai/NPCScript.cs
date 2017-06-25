@@ -7,10 +7,10 @@ public class NPCScript : MonoBehaviour
 {
     public GameObject target;
     NavMeshAgent agent;
-    static bool follow = false;
+    public static bool follow = false;
     public float timer;
     public GameObject player;
-    //public GameObject spawn;
+    
     //public CameraEffects camEffects;
     //public Material shirt;
     //public Material pants;
@@ -31,7 +31,7 @@ public class NPCScript : MonoBehaviour
 
     void Start()
     {
-        //spawn = GameObject.Find("Spawn");
+        
         //camEffects = player.transform.GetChild(0).gameObject.GetComponent<CameraEffects>();
         Transform[] pathTransform = destinations.GetComponentsInChildren<Transform>();
         for (int i = 0; i < pathTransform.Length; i++)
