@@ -1,0 +1,2 @@
+in de editer kan de world scene zware fps problemen krijgen
+dit is over het algemeen te verhelpen door het uitzetten van de empty game objects: building en worldborder
