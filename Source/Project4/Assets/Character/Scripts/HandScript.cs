@@ -15,6 +15,7 @@ public class HandScript : MonoBehaviour
     public GameObject bodyHand;
     public CameraEffects camEffects;
     public BookManager bookManager;
+    public AudioSource papersound;
 
 
 
@@ -79,6 +80,7 @@ public class HandScript : MonoBehaviour
                 Destroy(item);
                 item = null;
                 itemGrabbed = false;
+                papersound.Play();
             }
         }
        
