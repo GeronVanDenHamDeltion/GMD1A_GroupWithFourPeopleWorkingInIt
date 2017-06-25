@@ -24,8 +24,17 @@ public class PlayerBodyScript : MonoBehaviour {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
-
-        
+        if(!Input.GetButton("Fire3"))
+        {
+            if (vertical != 0 || horizontal != 0)
+            {
+                animationState = AnimationState.Walk;
+            }
+            else
+            {
+                animationState = AnimationState.Idle;
+            }
+        }
 
 
         if (animationState == AnimationState.Idle)
