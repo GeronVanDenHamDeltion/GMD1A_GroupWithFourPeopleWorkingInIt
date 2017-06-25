@@ -34,7 +34,7 @@ public class SaveAndLoad : MonoBehaviour
                 dataHolder.pageAbleToSee[i] = bookManager.pageAbleToSee[i];
             }
         }
-        dataHolder.currentScene = gameManager.currentScene;
+        dataHolder.currentScene = gameManager.sceneNumber;
         dataHolder.progress = gameManager.progress;
         var serializer = new XmlSerializer(typeof(DataHolder));
         using (var stream = new FileStream(Application.dataPath + "/SaveFileOne.xml", FileMode.Create))
