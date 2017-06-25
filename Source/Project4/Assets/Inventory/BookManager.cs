@@ -13,6 +13,8 @@ public class BookManager : MonoBehaviour
         fourth,
         fifth
     }
+    public Canvas bookCanvas;
+    public Canvas menuCanvas;
     public pages currentPageNumer;
     public List<Sprite> entryPages = new List<Sprite>();
     public List<Sprite> pageSprites = new List<Sprite>();
@@ -207,20 +209,39 @@ public class BookManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory") && inventory.activeInHierarchy == false)
         {
+            bookCanvas.enabled = true;
             inventory.SetActive(true);
             currentPageNumer = pages.first;
             UpdateBook();
             gamemanager.menu = true;
+            CamMouseLook[] cam = this.GetComponentsInChildren<CamMouseLook>();
+            for (int i = 0; i < cam.Length; i++)
+            {
+                cam[i].enabled = false;
+            }
         }
-        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel") )&& inventory.activeInHierarchy == true)
+        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel") )&& inventory.activeInHierarchy == true && bookCanvas.isActiveAndEnabled == true)
         {
+            bookCanvas.enabled = false;
             inventory.SetActive(false);
             gamemanager.menu = false;
+            CamMouseLook[] cam = this.GetComponentsInChildren<CamMouseLook>();
+            for (int i = 0; i < cam.Length; i++)
+            {
+                cam[i].enabled = true;
+            }
         }
         if (pageAbleToSee[0] && pageAbleToSee[1] && pageAbleToSee[2] && wait == false)
         {
-            wait = true;
-            gamemanager.progress++;
+            if (gamemanager.currentScene == 1)
+            {
+                
+                gamemanager.progress++;
+            }
+            else
+            {
+                wait = true;
+            }
         }
     }
 }
