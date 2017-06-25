@@ -31,6 +31,8 @@ public class BookManager : MonoBehaviour
 
     public void Awake()
     {
+        bookCanvas.enabled = false;
+        menuCanvas.enabled = false;
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     public void Start()
