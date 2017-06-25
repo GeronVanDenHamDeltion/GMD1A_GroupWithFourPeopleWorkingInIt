@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
+<<<<<<< HEAD
     <x>0.151847556</x>
     <y>0.900000632</y>
     <z>-0.272625625</z>
+=======
+<<<<<<< HEAD
+    <x>129.200012</x>
+    <y>0.8000006</y>
+    <z>-23.9</z>
+=======
+<<<<<<< HEAD
+    <x>0.281799376</x>
+    <y>0.900000632</y>
+    <z>1.07566762</z>
+=======
+<<<<<<< HEAD
+    <x>129.2</x>
+    <y>0.8000004</y>
+    <z>-23.9</z>
+=======
+    <x>0.200567454</x>
+    <y>0.9000006</y>
+    <z>-0.2765259</z>
+>>>>>>> 9a55fc14db62cef219268cbe9ff2667814fbebb8
+>>>>>>> b289654f7f01a87b6d8dc88a4de1f9d75fa72b2c
+>>>>>>> c66a7073f1247850f5f28da26a89372f24208a59
+>>>>>>> d14149e07bf3870f42c98a58c3245e92c2f336b2
   </playerlocation>
   <pageAbleToSee>
     <boolean>true</boolean>
     <boolean>true</boolean>
     <boolean>true</boolean>
-    <boolean>false</boolean>
-    <boolean>false</boolean>
-    <boolean>false</boolean>
+    <boolean>true</boolean>
+    <boolean>true</boolean>
+    <boolean>true</boolean>
   </pageAbleToSee>
-  <currentScene>1</currentScene>
-  <progress>2</progress>
+  <currentScene>3</currentScene>
+  <progress>4</progress>
 </DataHolder>

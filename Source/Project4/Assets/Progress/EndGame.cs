@@ -6,6 +6,8 @@ public class EndGame : MonoBehaviour
 {
     public bool playerispressent;
     public bool partOne;
+    public bool partTwo;
+    public int amountofruns;
     public GameObject player;
     public CameraEffects effects;
     public float volume;
@@ -38,14 +40,16 @@ public class EndGame : MonoBehaviour
             effects.Grain(0, 90, 50, true);
             effects.staticNoise.volume = volume;
             effects.heartBeat.volume = volume;
-            if (player.transform.rotation.y > 150 || player.transform.rotation.y < -100)
+            if (partTwo == false)
             {
                 StartCoroutine(endGamePartTwo());
+                partTwo = true;
             }
         }
     }
     public IEnumerator endGamePartTwo()
     {
+        print("test end");
         anim.SetBool("bNPCidle", true);
         yield return new WaitForSeconds(wait);
         npc.SetActive(true);
@@ -82,15 +86,27 @@ public class EndGame : MonoBehaviour
         yield return new WaitForSeconds(wait);
         npc.SetActive(true);
         yield return new WaitForSeconds(wait);
-        yield return new WaitForSeconds(wait);
-        npc.SetActive(true);
-        yield return new WaitForSeconds(wait);
         npc.SetActive(false);
         yield return new WaitForSeconds(wait);
         npc.SetActive(true);
         yield return new WaitForSeconds(wait);
         npc.SetActive(false);
+        yield return new WaitForSeconds(wait);
+        npc.SetActive(true);
+        yield return new WaitForSeconds(wait);
         npc.SetActive(false);
+        if (amountofruns < 75)
+        {
+            StartCoroutine(endGamePartTwo());
+        }
+        else
+        {
+            StartCoroutine(endcredits());
+        }
+    }
+    public IEnumerator endcredits()
+    {
+        yield return new WaitForEndOfFrame();
     }
 
 }
