@@ -23,6 +23,7 @@ public class EndGame : MonoBehaviour
     public VideoPlayer video;
     public GameManager gamemanager;
     public Camera endcamera;
+    public GameObject sound;
     public void Awake()
     {
         endcamera.enabled = false;
@@ -120,7 +121,7 @@ public class EndGame : MonoBehaviour
     }
     public IEnumerator endcredits()
     {
-        yield return new WaitForEndOfFrame();
+        sound.SetActive(false);
         player.SetActive(false);
         endcamera.enabled = true;
         effects.staticNoise.volume = 0;
@@ -128,9 +129,12 @@ public class EndGame : MonoBehaviour
         effects.chromaticAberration = 0;
         effects.grain = 0;
         video.Play();
+        ResSave ressave = sound.GetComponent<Sounds>().Load();
+        video.gameObject.GetComponent<AudioSource>().volume = ressave.volume;
         yield return new WaitForSeconds(110);
+        print("gvd ga naar menu dan!");
         gamemanager.sceneNumber = 0;
-        gamemanager.ChangeScene();
+        StartCoroutine(gamemanager.ChangeScene());
         //effects.ChromaticAberration(0, 0, 0, false);
         //effects.Grain(0, 0, 0, false);
        
