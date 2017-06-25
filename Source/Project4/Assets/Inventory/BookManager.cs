@@ -28,12 +28,15 @@ public class BookManager : MonoBehaviour
     public GameManager gamemanager;
     public bool wait;
     public bool waittwo;
+    public Text message;
 
     public void Awake()
     {
+        message.text = ("");
         bookCanvas.enabled = false;
         menuCanvas.enabled = false;
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        StartCoroutine(messageChange("You have a new entry in your diary, Press E"));
     }
     public void Start()
     {
@@ -271,11 +274,18 @@ public class BookManager : MonoBehaviour
             {
                 wait = true;
                 gamemanager.progress++;
+                StartCoroutine(messageChange("You have a new entry in your diary, Press E"));
             }
             else
             {
                 wait = true;
             }
         }
+    }
+    public IEnumerator messageChange(string messageText)
+    {
+        message.text = messageText;
+        yield return new WaitForSeconds(5);
+        message.text = ("");
     }
 }
