@@ -222,9 +222,31 @@ public class BookManager : MonoBehaviour
                 cam[i].enabled = false;
             }
         }
-        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel") )&& inventory.activeInHierarchy == true && bookCanvas.isActiveAndEnabled == true)
+        else if ((Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel")) && inventory.activeInHierarchy == true && bookCanvas.isActiveAndEnabled == true)
         {
             bookCanvas.enabled = false;
+            inventory.SetActive(false);
+            gamemanager.menu = false;
+            CamMouseLook[] cam = this.GetComponentsInChildren<CamMouseLook>();
+            for (int i = 0; i < cam.Length; i++)
+            {
+                cam[i].enabled = true;
+            }
+        }
+        if (Input.GetButtonDown("Cancel") && inventory.activeInHierarchy == false)
+        {
+            menuCanvas.enabled = true;
+            inventory.SetActive(true);
+            gamemanager.menu = true;
+            CamMouseLook[] cam = this.GetComponentsInChildren<CamMouseLook>();
+            for (int i = 0; i < cam.Length; i++)
+            {
+                cam[i].enabled = false;
+            }
+        }
+        else if (Input.GetButtonDown("Cancel") && inventory.activeInHierarchy == true && menuCanvas.enabled == true)
+        {
+            menuCanvas.enabled = false;
             inventory.SetActive(false);
             gamemanager.menu = false;
             CamMouseLook[] cam = this.GetComponentsInChildren<CamMouseLook>();
