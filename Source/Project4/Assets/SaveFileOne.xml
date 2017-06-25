@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
-    <x>27.4770012</x>
-    <y>0.8000006</y>
-    <z>-97.33363</z>
+    <x>129.2</x>
+    <y>0.8000004</y>
+    <z>-23.9</z>
   </playerlocation>
   <pageAbleToSee>
     <boolean>true</boolean>

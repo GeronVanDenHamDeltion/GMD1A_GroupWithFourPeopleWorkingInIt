@@ -222,11 +222,6 @@ public class BookManager : MonoBehaviour
     }
     public void Update()
     {
-        if(pageAbleToSee[3] == true || pageAbleToSee[4] == true || pageAbleToSee[5] == true)
-        {
-            //NPCScript.follow = true;
-            //print("pls follow");
-        }
 
         if (Input.GetButtonDown("Inventory") && inventory.activeInHierarchy == false)
         {

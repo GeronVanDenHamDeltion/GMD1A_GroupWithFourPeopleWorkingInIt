@@ -19,7 +19,7 @@ public class Load : MonoBehaviour
         {
             loadbutton.SetActive(true);
             DataHolder dat = Loading();
-            if (dat.currentScene == 1 || dat.currentScene == 1)
+            if (dat.currentScene == 1 || dat.currentScene == 3)
             {
                 loadbutton.GetComponent<Image>().sprite = room;
             }
