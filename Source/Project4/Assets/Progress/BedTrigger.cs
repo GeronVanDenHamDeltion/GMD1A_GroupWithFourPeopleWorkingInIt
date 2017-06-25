@@ -21,6 +21,7 @@ public class BedTrigger : MonoBehaviour
             textbool = true;
             if (Input.GetButtonDown("Interact"))
             {
+                gamemanager.saveAndLoad.Save();
                 text.text = ("");
                 gamemanager.progress++;
                 gamemanager.sceneNumber = 2;
@@ -30,7 +31,10 @@ public class BedTrigger : MonoBehaviour
     }
     public void OnTriggerEnter(Collider col)
     {
-        ispressent = true;
+        if(col.CompareTag("Player") == true)
+        {
+            ispressent = true;
+        }
     }
     public void OnTriggerExit(Collider col)
     {

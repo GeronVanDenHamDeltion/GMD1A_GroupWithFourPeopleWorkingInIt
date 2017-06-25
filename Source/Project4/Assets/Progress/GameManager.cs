@@ -40,19 +40,25 @@ public class GameManager : MonoBehaviour
         if (sceneNumber == 0)
         {
             currentScene = 0;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(0);
             Destroy(gameObject);
         }
         if (sceneNumber == 1)
         {
             currentScene = 1;
-            SceneManager.LoadScene("Room");
+            SceneManager.LoadScene(1);
             //SceneManager.sceneLoaded += LevelLoaded;
         }
         if (sceneNumber == 2)
         {
             currentScene = 2;
-            SceneManager.LoadScene("World");
+            SceneManager.LoadScene(2);
+            //SceneManager.sceneLoaded += LevelLoaded;
+        }
+        if (sceneNumber == 3)
+        {
+            currentScene = 3;
+            SceneManager.LoadScene(3);
             //SceneManager.sceneLoaded += LevelLoaded;
         }
     }

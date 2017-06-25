@@ -287,6 +287,24 @@ public class BookManager : MonoBehaviour
                 wait = true;
             }
         }
+        if (pageAbleToSee[3] && pageAbleToSee[4] && pageAbleToSee[5] && waittwo == false)
+        {
+            if (gamemanager.currentScene == 2)
+            {
+                waittwo = true;
+                gamemanager.progress++;
+                gamemanager.sceneNumber++;
+                gamemanager.saveAndLoad.Save();
+                StartCoroutine(gamemanager.ChangeScene());
+            }
+            else
+            {
+                if (gamemanager.currentScene > 1)
+                {
+                    waittwo = true;
+                }
+            }
+        }
     }
     public IEnumerator messageChange(string messageText)
     {
