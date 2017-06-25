@@ -80,7 +80,6 @@ public class Resolutions : MonoBehaviour
     }
     public void loading()
     {
-        print("loading");
         SaveFile = Load();
         resolutionSlider.value = SaveFile.Resolution;
         TextureSlider.value = SaveFile.TextureQual;
