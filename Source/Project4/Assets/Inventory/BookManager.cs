@@ -237,7 +237,7 @@ public class BookManager : MonoBehaviour
         {
             if (gamemanager.currentScene == 1)
             {
-                
+                wait = true;
                 gamemanager.progress++;
             }
             else

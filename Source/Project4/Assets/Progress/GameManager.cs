@@ -41,15 +41,18 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         if (sceneNumber == 0)
         {
+            currentScene = 0;
             SceneManager.LoadScene("MainMenu");
         }
         if (sceneNumber == 1)
         {
+            currentScene = 1;
             SceneManager.LoadScene("Room");
             //SceneManager.sceneLoaded += LevelLoaded;
         }
         if (sceneNumber == 2)
         {
+            currentScene = 2;
             SceneManager.LoadScene("World");
             //SceneManager.sceneLoaded += LevelLoaded;
         }

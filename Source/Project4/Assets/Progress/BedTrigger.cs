@@ -5,7 +5,6 @@ using UnityEngine;
 public class BedTrigger : MonoBehaviour
 {
     public GameManager gamemanager;
-    public Canvas canvas;
     public bool ispressent;
     void Awake()
     {
