@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+
+
 
 public class EndGame : MonoBehaviour
 {
+
+    public VideoClip creditsMP4;
+
     public bool playerispressent;
     public bool partOne;
     public bool partTwo;
@@ -107,6 +113,7 @@ public class EndGame : MonoBehaviour
     public IEnumerator endcredits()
     {
         yield return new WaitForEndOfFrame();
+        
     }
 
 }
