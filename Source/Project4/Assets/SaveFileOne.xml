@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
+<<<<<<< HEAD
     <x>0</x>
     <y>0</y>
     <z>0</z>
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <x>0.151847556</x>
+    <y>0.900000632</y>
+    <z>-0.272625625</z>
+=======
+<<<<<<< HEAD
+>>>>>>> b504e21e6958340bf58eb9641782f4f552d808b6
+    <x>129.200012</x>
+    <y>0.800000548</y>
+    <z>-23.9</z>
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+    <x>0.281799376</x>
+    <y>0.900000632</y>
+    <z>1.07566762</z>
+=======
+<<<<<<< HEAD
+    <x>129.2</x>
+    <y>0.8000004</y>
+    <z>-23.9</z>
+=======
+    <x>0.200567454</x>
+    <y>0.9000006</y>
+    <z>-0.2765259</z>
+>>>>>>> 9a55fc14db62cef219268cbe9ff2667814fbebb8
+>>>>>>> b289654f7f01a87b6d8dc88a4de1f9d75fa72b2c
+>>>>>>> c66a7073f1247850f5f28da26a89372f24208a59
+>>>>>>> d14149e07bf3870f42c98a58c3245e92c2f336b2
+>>>>>>> b504e21e6958340bf58eb9641782f4f552d808b6
+>>>>>>> 01f06a34d3306537787f768b10909268580dd2a2
   </playerlocation>
   <pageAbleToSee>
     <boolean>false</boolean>

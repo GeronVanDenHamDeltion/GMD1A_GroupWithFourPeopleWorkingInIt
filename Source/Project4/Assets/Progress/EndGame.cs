@@ -101,19 +101,23 @@ public class EndGame : MonoBehaviour
         npc.SetActive(true);
         yield return new WaitForSeconds(wait);
         npc.SetActive(false);
-        if (amountofruns < 75)
+        if (amountofruns < 7)
         {
+            amountofruns++;
             StartCoroutine(endGamePartTwo());
         }
         else
         {
+            partOne = false;
+            partTwo = false;
             StartCoroutine(endcredits());
         }
     }
     public IEnumerator endcredits()
     {
         yield return new WaitForEndOfFrame();
-        
+        Handheld.PlayFullScreenMovie("FOG EndCredit", Color.black, FullScreenMovieControlMode.CancelOnInput);
+        print("test");
     }
 
 }
