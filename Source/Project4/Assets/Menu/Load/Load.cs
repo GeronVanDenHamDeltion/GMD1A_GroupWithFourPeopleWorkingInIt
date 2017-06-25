@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Note : MonoBehaviour
+public class Load : MonoBehaviour
 {
-    public int noteNumber;
-    public void Awake()
+    public GameObject loadbutton;
+	void Awake ()
     {
-        DataHolder dat = Load();
-        if (dat.pageAbleToSee[noteNumber] == true)
+        if (File.Exists(Application.dataPath + "/SaveFileOne.xml"))
         {
-            Destroy(gameObject);
+            loadbutton.SetActive(true);
+
+        }
+        else
+        {
+            loadbutton.SetActive(false);
         }
     }
-    public DataHolder Load()
+    public DataHolder Loading()
     {
         var serializer = new XmlSerializer(typeof(DataHolder));
         using (var stream = new FileStream(Application.dataPath + "/SaveFileOne.xml", FileMode.Open))
@@ -23,4 +28,8 @@ public class Note : MonoBehaviour
             return serializer.Deserialize(stream) as DataHolder;
         }
     }
+    void Update ()
+    {
+		
+	}
 }

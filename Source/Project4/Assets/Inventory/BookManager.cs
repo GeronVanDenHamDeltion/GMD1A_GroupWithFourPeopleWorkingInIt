@@ -207,6 +207,16 @@ public class BookManager : MonoBehaviour
         forwardButton.enabled = true;
         UpdateBook();
     }
+    public void save()
+    {
+        gamemanager.saveAndLoad.Save();
+    }
+    public void Exit()
+    {
+        gamemanager.sceneNumber = 0;
+        StartCoroutine(gamemanager.ChangeScene());
+        
+    }
     public void Update()
     {
         if (Input.GetButtonDown("Inventory") && inventory.activeInHierarchy == false)

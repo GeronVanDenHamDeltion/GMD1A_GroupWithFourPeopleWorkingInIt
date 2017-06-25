@@ -19,6 +19,7 @@ public class NewGame : MonoBehaviour
     public IEnumerator startNewGame()
     {
         yield return new WaitForSeconds(2);
+        gameManager.saveAndLoad.Save();
         gameManager.sceneNumber = 1;
         StartCoroutine(gameManager.ChangeScene());
         gameManager.progress++;
