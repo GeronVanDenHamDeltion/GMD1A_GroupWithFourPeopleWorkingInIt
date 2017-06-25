@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
-    <x>182.505737</x>
-    <y>0.800000668</y>
-    <z>-43.4073219</z>
+    <x>0</x>
+    <y>0</y>
+    <z>0</z>
   </playerlocation>
   <pageAbleToSee>
     <boolean>false</boolean>
@@ -13,6 +13,6 @@
     <boolean>false</boolean>
     <boolean>false</boolean>
   </pageAbleToSee>
-  <currentScene>2</currentScene>
-  <progress>3</progress>
+  <currentScene>0</currentScene>
+  <progress>0</progress>
 </DataHolder>
