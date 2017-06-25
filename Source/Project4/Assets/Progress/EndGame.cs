@@ -20,8 +20,13 @@ public class EndGame : MonoBehaviour
     public float wait;
     public Animator anim;
     public GameObject npc;
+    public VideoPlayer video;
+    public GameManager gamemanager;
+    public Camera endcamera;
     public void Awake()
     {
+        endcamera.enabled = false;
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         npc.SetActive(false);
     }
     public void OnTriggerEnter(Collider col)
@@ -116,8 +121,19 @@ public class EndGame : MonoBehaviour
     public IEnumerator endcredits()
     {
         yield return new WaitForEndOfFrame();
-        Handheld.PlayFullScreenMovie("FOG EndCredit", Color.black, FullScreenMovieControlMode.CancelOnInput);
-        print("test");
+        player.SetActive(false);
+        endcamera.enabled = true;
+        effects.staticNoise.volume = 0;
+        effects.heartBeat.volume = 0;
+        effects.chromaticAberration = 0;
+        effects.grain = 0;
+        video.Play();
+        yield return new WaitForSeconds(110);
+        gamemanager.sceneNumber = 0;
+        gamemanager.ChangeScene();
+        //effects.ChromaticAberration(0, 0, 0, false);
+        //effects.Grain(0, 0, 0, false);
+       
     }
 
 }
