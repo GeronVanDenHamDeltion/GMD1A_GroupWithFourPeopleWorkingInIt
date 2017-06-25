@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
-<<<<<<< HEAD
-    <x>129.2</x>
-    <y>0.8000004</y>
+    <x>129.200012</x>
+    <y>0.8000006</y>
     <z>-23.9</z>
-=======
-    <x>0.200567454</x>
-    <y>0.9000006</y>
-    <z>-0.2765259</z>
->>>>>>> 9a55fc14db62cef219268cbe9ff2667814fbebb8
   </playerlocation>
   <pageAbleToSee>
     <boolean>true</boolean>
     <boolean>true</boolean>
     <boolean>true</boolean>
-    <boolean>false</boolean>
-    <boolean>false</boolean>
-    <boolean>false</boolean>
+    <boolean>true</boolean>
+    <boolean>true</boolean>
+    <boolean>true</boolean>
   </pageAbleToSee>
-  <currentScene>1</currentScene>
-  <progress>2</progress>
+  <currentScene>3</currentScene>
+  <progress>4</progress>
 </DataHolder>
