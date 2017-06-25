@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <DataHolder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <playerlocation>
-    <x>0.6676361</x>
-    <y>0.9000006</y>
-    <z>0.406872183</z>
+    <x>152.607483</x>
+    <y>0.800368249</y>
+    <z>-14.1862593</z>
   </playerlocation>
   <pageAbleToSee>
-    <boolean>true</boolean>
+    <boolean>false</boolean>
     <boolean>true</boolean>
     <boolean>true</boolean>
     <boolean>false</boolean>
     <boolean>false</boolean>
     <boolean>false</boolean>
   </pageAbleToSee>
-  <currentScene>1</currentScene>
+  <currentScene>2</currentScene>
+  <progress>3</progress>
 </DataHolder>

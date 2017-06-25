@@ -36,6 +36,7 @@ public class SaveAndLoad : MonoBehaviour
             }
         }
         dataHolder.currentScene = gameManager.currentScene;
+        dataHolder.progress = gameManager.progress;
         var serializer = new XmlSerializer(typeof(DataHolder));
         using (var stream = new FileStream(Application.dataPath + "/SaveFileOne.xml", FileMode.Create))
         {
@@ -55,6 +56,13 @@ public class SaveAndLoad : MonoBehaviour
     {
         print("loading");
         dataHolder = Load();
+        gameManager.sceneNumber = dataHolder.currentScene;
+        gameManager.ChangeScene();
+        //StartCoroutine(loadingTwo());
+    }
+    public void loadingTwo()
+    {
+        //yield return new WaitForSeconds(2);
         if (player != null)
         {
             player.transform.position = dataHolder.playerlocation;
@@ -66,11 +74,6 @@ public class SaveAndLoad : MonoBehaviour
                 bookManager.pageAbleToSee[i] = dataHolder.pageAbleToSee[i];
             }
         }
-        gameManager.currentScene = dataHolder.currentScene;
-        if (gameManager.currentScene != gameManager.sceneNumber)
-        {
-        gameManager.ChangeScene();
-        }
-
+        gameManager.progress = dataHolder.progress;
     }
 }

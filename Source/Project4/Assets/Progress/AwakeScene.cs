@@ -19,7 +19,10 @@ public class AwakeScene : MonoBehaviour
             {
                 gameManager.GetComponent<SaveAndLoad>().player.GetComponent<BookManager>().pageAbleToSee[i] = dat.pageAbleToSee[i];
             }
-            
+        }
+        if(gameManager.GetComponent<GameManager>().progress < 1)
+        {
+            gameManager.GetComponent<SaveAndLoad>().loadingTwo();
         }
     }
     public DataHolder Load()

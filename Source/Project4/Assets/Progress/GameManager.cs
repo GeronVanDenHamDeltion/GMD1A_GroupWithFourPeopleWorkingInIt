@@ -46,15 +46,12 @@ public class GameManager : MonoBehaviour
         }
         if (sceneNumber == 1)
         {
-            
-            saveAndLoad.Save();
             currentScene = 1;
             SceneManager.LoadScene("Room");
             //SceneManager.sceneLoaded += LevelLoaded;
         }
         if (sceneNumber == 2)
         {
-            saveAndLoad.Save();
             currentScene = 2;
             SceneManager.LoadScene("World");
             //SceneManager.sceneLoaded += LevelLoaded;
