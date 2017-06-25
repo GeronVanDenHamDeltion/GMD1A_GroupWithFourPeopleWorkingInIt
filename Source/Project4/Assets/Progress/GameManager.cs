@@ -34,18 +34,19 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator ChangeScene()
     {
-
+        DontDestroyOnLoad(transform.gameObject);
         print("Change");
         loadingscreen.enabled = true;
         yield return new WaitForEndOfFrame();
-        DontDestroyOnLoad(transform.gameObject);
         if (sceneNumber == 0)
         {
             currentScene = 0;
             SceneManager.LoadScene("MainMenu");
+            Destroy(gameObject);
         }
         if (sceneNumber == 1)
         {
+            
             saveAndLoad.Save();
             currentScene = 1;
             SceneManager.LoadScene("Room");
