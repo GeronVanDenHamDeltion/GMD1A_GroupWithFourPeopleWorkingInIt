@@ -121,6 +121,7 @@ public class HandScript : MonoBehaviour
                 {
                     print("Interacted");
                     anim.SetTrigger("pHandPress");
+                    hit.transform.gameObject.GetComponent<Animator>().SetTrigger("pPlayAnim");
                 }
             }
 
