@@ -102,6 +102,8 @@ public class EndGame : MonoBehaviour
         }
         else
         {
+            partOne = false;
+            partTwo = false;
             StartCoroutine(endcredits());
         }
     }
