@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator ChangeScene()
     {
         DontDestroyOnLoad(transform.gameObject);
-        print("Change");
         loadingscreen.enabled = true;
         yield return new WaitForEndOfFrame();
         if (sceneNumber == 0)

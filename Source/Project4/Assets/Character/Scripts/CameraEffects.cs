@@ -122,13 +122,11 @@ public class CameraEffects : MonoBehaviour  {
         
         if(wakenUp == false)
         {
-            print("waking up");
             Vignette(1, 0.4f, 5, false);
 
         }
         if (vignette <= 0.4f)
         {
-            print("woken");
             wakenUp = true;
         }
     }

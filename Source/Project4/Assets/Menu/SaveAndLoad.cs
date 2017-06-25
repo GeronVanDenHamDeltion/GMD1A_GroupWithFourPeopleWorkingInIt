@@ -18,7 +18,6 @@ public class SaveAndLoad : MonoBehaviour
     }
     public void Save()
     {
-        print("saving");
         dataHolder = new DataHolder();
         if (player != null)
         {
