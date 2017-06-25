@@ -61,23 +61,25 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetButton("Fire3"))
         {
-            speed = runningSpeed;
+            
             if (vertical > 0)
             {
                 playerBodyScript.animationState = PlayerBodyScript.AnimationState.Run;
+                speed = runningSpeed;
             }
         }
         else if ( horizontal == 0 && vertical == 0)
         {
             playerBodyScript.animationState = PlayerBodyScript.AnimationState.Idle;
         }
+
         else
         {
             speed = walkingSpeed;
             playerBodyScript.animationState = PlayerBodyScript.AnimationState.Walk;
         }
 
-        if(vertical == 0)
+        if(vertical == 0 && horizontal == 0 )
         {
             playerBodyScript.animationState = PlayerBodyScript.AnimationState.Idle;
         }
