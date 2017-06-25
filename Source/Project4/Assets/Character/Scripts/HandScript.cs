@@ -66,6 +66,7 @@ public class HandScript : MonoBehaviour
 
         if (itemGrabbed)
         {
+            papersound.Play();
             camEffects.grain = 5;
             item.transform.position = Vector3.Lerp(item.transform.position, palm.transform.position, 20 * Time.deltaTime);
             item.transform.rotation = palm.transform.rotation;
@@ -80,7 +81,7 @@ public class HandScript : MonoBehaviour
                 Destroy(item);
                 item = null;
                 itemGrabbed = false;
-                papersound.Play();
+                
             }
         }
        
