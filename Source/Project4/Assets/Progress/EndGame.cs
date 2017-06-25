@@ -95,8 +95,9 @@ public class EndGame : MonoBehaviour
         npc.SetActive(true);
         yield return new WaitForSeconds(wait);
         npc.SetActive(false);
-        if (amountofruns < 75)
+        if (amountofruns < 7)
         {
+            amountofruns++;
             StartCoroutine(endGamePartTwo());
         }
         else
