@@ -16,6 +16,10 @@ public class CameraEffects : MonoBehaviour  {
     public float camFOV = 80;
     public float bloom;
     public float grain = 0;
+    public AudioSource staticNoise;
+    public AudioSource heartBeat;
+    public float damage = 0;
+    
     public bool wakenUp;
     
 
@@ -31,9 +35,6 @@ public class CameraEffects : MonoBehaviour  {
     {
         post = GetComponent<PostProcessingController>();
         
-        
-
-
     }
 
     void FixedUpdate()
@@ -45,6 +46,10 @@ public class CameraEffects : MonoBehaviour  {
         post.bloom.bloom.intensity = bloom;
         post.grain.intensity = grain;
 
+        staticNoise.volume = damage / 1000;
+        heartBeat.volume = damage / 200;
+
+
 
         if (closeEnemy != null)
         {
@@ -52,14 +57,21 @@ public class CameraEffects : MonoBehaviour  {
 
             if (closestThread <= anxietyRadius)
             {
-                ChromaticAberration(0, 20, 15, true);
+                ChromaticAberration(0, 20, 60, true);
                 Grain(0, 1, 3, true);
+                damage++;
+                
 
             }
             else
             {
                 ChromaticAberration(chromaticAberration, 0, 5, false);
                 Grain(grain, 0, 5, false);
+                if (damage !=0)
+                {
+                    damage = 0;
+                    
+                }
             }
 
         }
